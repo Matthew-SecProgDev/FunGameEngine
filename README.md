@@ -11,6 +11,6 @@
 This solution consists of two projects:
 
 1. **Fun.Engine**: This is the main engine project, as described above. It includes the foundational elements necessary for game development.
-2. **Fun.SimpleGame**: It serves as an example of how to use the engine to develop a game, showcasing the features and capabilities of FunEngine. As the engine evolves, more projects and examples will be created to demonstrate its growing capabilities.
+2. **Fun.SimpleGame**: This is a simple game created using FunEngine. It serves as an example of how to use the engine to develop a game, showcasing the features and capabilities of FunEngine. As the engine evolves, more projects and examples will be created to demonstrate its growing capabilities.
 
 This solution is currently in **active development**. New features, improvements, and bug fixes are continuously being added. Stay tuned for updates as the engine continues to evolve.
