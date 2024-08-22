@@ -1,0 +1,106 @@
+{
+  "assets": {
+    "textures": {
+      "player": {
+        "path": "textures/player",
+        "states": {
+          "idle": "player_idle",
+          "walk": "player_walk",
+          "dead": "player_dead",
+          "attack1": "player_attack1",
+          "attack2": "player_attack2",
+          "attack3": "player_attack3",
+          "shot": "player_shot1"
+        },
+        "weapons": {
+          "arrow": "player_arrow"
+        }
+      },
+      "enemies": {
+        "enemy1": {
+          "path": "textures/enemy1",
+          "states": {
+            "idle": "enemy1_idle",
+            "walk": "enemy1_walk",
+            "dead": "enemy1_dead",
+            "attack1": "enemy1_attack1",
+            "attack2": "enemy1_attack2",
+            "attack3": "enemy1_attack3"
+          }
+        } /*,
+        "enemy2": {
+          "idle": "assets/textures/enemies/enemy2/enemy2_idle.png",
+          "attack": "assets/textures/enemies/enemy2/enemy2_attack.png"
+        }*/
+      },
+      //"terrain": "textures/terrain/terrain_texture",
+      "splash": "textures/splash/splash_screen",
+      "effects": {
+        "creation": [
+          "textures/effects/creation/enemy_creation",
+          "textures/effects/creation/enemy_creation2"
+        ],
+        "hitting": [
+          "textures/effects/hitting/enemy_hit",
+          "textures/effects/hitting/enemy_hit2",
+          "textures/effects/hitting/enemy_hit3",
+          "textures/effects/hitting/player_hit"
+        ]
+      },
+      "ui": {
+        "healthBar": {
+          "background": "textures/ui/healthbar_background",
+          "fill": "textures/ui/healthbar_fill"
+        }
+      }
+    },
+    "audio": {
+      "sounds": {
+        /*"hit": "audio/sounds/hit_sound",
+        "bleed": "audio/sounds/bleed_sound",*/
+        "footstep": "audio/sounds/footstep_sound"
+      },
+      "music": {
+        "background": "audio/music/background_music",
+        "battle": "audio/music/battle_music"
+      }
+    },
+    "fonts": {
+      "main": "fonts/font",
+      "secondary": "fonts/font2"
+    }
+  },
+  "settings": {
+    /*"screen": {
+      "width": 1280,
+      "height": 720,
+      "fullscreen": false
+    },*/
+    "audio": {
+      "masterVolume": 0.8,
+      "musicVolume": 0.6,
+      "sfxVolume": 0.7
+    }
+  },
+  "levels": [//currently the game just one level
+    {
+      "name": "Level 1",
+      "background": "textures/terrain/terrain_texture",
+      "player": {
+        "health": 100,
+        "speed": 5.0
+      },
+      "spawnEnemy": "EnemyConfig.xml"
+    }
+  ],  
+  "controls": {
+    "moveLeft": "A",
+    "moveRight": "D",
+    "moveUp": "W",
+    "moveDown": "S",
+    "attack1": "Y",
+    "attack2": "G",
+    "attack3": "H",
+    "shot": "J"
+  }
+}

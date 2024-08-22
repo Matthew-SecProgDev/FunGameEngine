@@ -1,0 +1,18 @@
+{
+  "MainConfig": {
+    "Width": 1920, //1280
+    "Height": 1080, //720
+    "RootDirectory": "Content",
+    "IsMouseVisible": true,
+    "IsFullScreen": false,
+    "IsFixedTimeStep": true,
+    "UpdatesCountPerSecond": 60
+  },
+  "AssetsConfig": {
+    "Player": {
+      "idle": "assets/textures/player/player_idle.png",
+      "run": "assets/textures/player/player_run.png",
+      "jump": "assets/textures/player/player_jump.png"
+    }
+  }
+}

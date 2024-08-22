@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+	<Enemy BuildTime="AtBegin" Active="false">
+		<Role>Attacker</Role>
+		<Health>100</Health>
+		<Position>BottomLeft</Position>
+	</Enemy>
+	<Enemy BuildTime="AtBegin" Active="false">
+		<Role>Reserve</Role>
+		<Health>10</Health>
+		<Position>TopRight</Position>
+	</Enemy>
+	<Enemy BuildTime="AtBegin" Active="false">
+		<Role>Attacker</Role>
+		<Health>150</Health>
+		<Position>BottomRight</Position>
+	</Enemy>
+	<!--<Enemy BuildTime="GT:800" Active="true">
+		<Role>Attacker</Role>
+		<Health>100</Health>
+		<Position>Value:-800</Position>
+	</Enemy>-->
+	<!--<Enemy BuildTime="GT:50" Active="false">
+		<Role>Attacker</Role>
+		<Health>150</Health>
+		<Position>BottomRight</Position>
+	</Enemy>-->
+	<!--<Group BuildTime="AtBegin" Position="Value:130">
+		<Enemy Active="false">
+			<Role>Reserve</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>150</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+	</Group>-->
+	<!--<Enemy BuildTime="AtBegin" Active="false">
+		<Role>Attacker</Role>
+		<Health>10</Health>
+		<Position>BottomLeft</Position>
+	</Enemy>
+	<Enemy BuildTime="AtBegin" Active="false">
+		<Role>Attacker</Role>
+		<Health>150</Health>
+		<Position>TopLeft</Position>
+	</Enemy>-->
+	<!--<Enemy BuildTime="GT:200" Active="true">
+		<Role>Attacker</Role>
+		<Health>150</Health>
+		<Position>BottomLeft</Position>
+	</Enemy>
+	<Enemy BuildTime="GT:700" Active="true">
+		<Role>Attacker</Role>
+		<Health>100</Health>
+		<Position>Value:-50</Position>
+	</Enemy>
+	<Enemy BuildTime="GT:700" Active="true">
+		<Role>Reserve</Role>
+		<Health>100</Health>
+		<Position>Value:100</Position>
+	</Enemy>-->
+	<!--<Group BuildTime="AtBegin" Position="Value:-80">
+		<Enemy Active="false">
+			<Role>Reserve</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>150</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+	</Group>
+	<Enemy BuildTime="GT:700" Active="true">
+		<Role>Reserve</Role>
+		<Health>100</Health>
+		<Position>Value:900</Position>
+	</Enemy>
+	<Group BuildTime="AtBegin" Position="BottomLeft">
+		<Enemy Active="false">
+			<Role>Reserve</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+	</Group>
+	<Enemy BuildTime="GT:750" Active="true">
+		<Role>Attacker</Role>
+		<Health>150</Health>
+		<Position>Value:-130</Position>
+	</Enemy>
+	<Group BuildTime="GT:795" Position="Value:-50">
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>150</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Reserve</Role>
+			<Health>100</Health>
+		</Enemy>
+	</Group>
+	<Group BuildTime="GT:200" Position="Value:130">
+		<Enemy Active="false">
+			<Role>Reserve</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>150</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="true">
+			<Role>Reserve</Role>
+			<Health>100</Health>
+		</Enemy>
+	</Group>
+	<Group BuildTime="GT:810" Position="Value:130">
+		<Enemy Active="false">
+			<Role>Attacker</Role>
+			<Health>200</Health>
+		</Enemy>
+		<Enemy Active="false">
+			<Role>Reserve</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="false">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+	</Group>
+	<Group BuildTime="GT:850" Position="Value:130">
+		<Enemy Active="false">
+			<Role>Reserve</Role>
+			<Health>200</Health>
+		</Enemy>
+		<Enemy Active="false">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+		<Enemy Active="false">
+			<Role>Attacker</Role>
+			<Health>100</Health>
+		</Enemy>
+	</Group>
+	<Enemy BuildTime="GT:890" Active="true">
+		<Role>Attacker</Role>
+		<Health>100</Health>
+		<Position>Value:-60</Position>
+	</Enemy>
+	<Enemy BuildTime="GT:950" Active="true">
+		<Role>Attacker</Role>
+		<Health>100</Health>
+		<Position>Value:-60</Position>
+	</Enemy>
+	<Enemy BuildTime="GT:950" Active="true">
+		<Role>Attacker</Role>
+		<Health>150</Health>
+		<Position>Value:60</Position>
+	</Enemy>-->
+</Config>
