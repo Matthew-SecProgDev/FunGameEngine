@@ -8,8 +8,7 @@ namespace Fun.Engine.Graphics
 {
     public sealed class Shapes : IDisposable
     {
-        //private readonly Game _game;
-        private readonly Sprites _sprites;
+        private readonly Game _game;
         private readonly BasicEffect _effect;
 
         private readonly VertexPositionColor[] _vertices;
@@ -27,16 +26,12 @@ namespace Fun.Engine.Graphics
         public const float MinLineThickness = 1f;
         public const float MaxLineThickness = 10f;
 
-        //public Shapes([NotNull]Game? game)
-        public Shapes(Sprites sprites)
+        public Shapes([NotNull]Game? game)
         {
-            //ArgumentNullException.ThrowIfNull(game);
-            ArgumentNullException.ThrowIfNull(sprites);
+            ArgumentNullException.ThrowIfNull(game);
 
-            //_game = game;
-            _sprites = sprites;
-            //_effect = new BasicEffect(game.GraphicsDevice)
-            _effect = new BasicEffect(sprites.GraphicsDevice)
+            _game = game;
+            _effect = new BasicEffect(game.GraphicsDevice)
             {
                 FogEnabled = false,
                 TextureEnabled = false,
@@ -73,13 +68,10 @@ namespace Fun.Engine.Graphics
             }
 #endif
 
-            // Set the blend state for transparency
-            //_game.GraphicsDevice.BlendState = BlendState.AlphaBlend;
 
             if (camera is null)
             {
-                //var viewport = _game.GraphicsDevice.Viewport;
-                var viewport = _sprites.GraphicsDevice.Viewport;
+                var viewport = _game.GraphicsDevice.Viewport;
                 _effect.Projection = Matrix.CreateOrthographicOffCenter(0f, viewport.Width, 0f, viewport.Height, 0f, 1f);
                 _effect.View = Matrix.Identity;
             }
@@ -90,9 +82,6 @@ namespace Fun.Engine.Graphics
                 _effect.Projection = camera.Projection;
                 _effect.View = camera.View;
             }
-
-            //var viewport = _game.GraphicsDevice.Viewport;
-            //_effect.Projection = Matrix.CreateOrthographicOffCenter(0, viewport.Width, 0, viewport.Height, 0f, 1f);
 
             _camera = camera;
 
@@ -540,15 +529,13 @@ namespace Fun.Engine.Graphics
             foreach (var effectPass in _effect.CurrentTechnique.Passes)
             {
                 effectPass.Apply();
-                //_game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
-                _sprites.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
+                _game.GraphicsDevice.DrawUserIndexedPrimitives(PrimitiveType.TriangleList,
                     _vertices,
                     0,
                     _vertexCount,
                     _indices,
                     0,
                     _indexCount / 3);
-                //_game.GraphicsDevice.DrawUserIndexedPrimitives()
             }
 
             _shapeCount = 0;

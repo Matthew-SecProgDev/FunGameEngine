@@ -1,25 +1,24 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework.Graphics;
-using Fun.SimpleGame.Managers;
+using System.IO;
+using Fun.Engine.Events.Interfaces;
+using Fun.Engine.Geometry;
+using Fun.Engine.Graphics;
+using Fun.Engine.Resources;
 using Fun.Engine.UI;
 using Fun.Engine.UI.Buttons;
 using Fun.Engine.UI.Buttons.Models;
 using Fun.Engine.UI.Icons;
 using Fun.Engine.UI.Icons.Models;
-using Fun.Engine.Resources;
-using Fun.Engine.Geometry;
-using Fun.SimpleGame.UI.HUDWidgets.Models;
-using System.IO;
-using Fun.Engine.Graphics;
-using Fun.SimpleGame.States.Gameplay;
-using Fun.Engine.Events.Interfaces;
 using Fun.SimpleGame.Entities;
+using Fun.SimpleGame.Managers;
+using Fun.SimpleGame.States.Gameplay;
+using Fun.SimpleGame.UI.HUDs.Models;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using XnaMathHelper = Microsoft.Xna.Framework.MathHelper;
-using System.Xml.Linq;
 
-namespace Fun.SimpleGame.UI.HUDWidgets
+namespace Fun.SimpleGame.UI.HUDs
 {
     public class HeadsUpDisplay : Engine.Entities.BaseObject
     {
@@ -35,7 +34,7 @@ namespace Fun.SimpleGame.UI.HUDWidgets
         private readonly SpriteFont _font;
         private readonly Color _penColor;
 
-        private readonly Dictionary<AssetType, BaseUIObject> _elements;
+        private readonly Dictionary<AssetType, BaseUIObject> _elements = [];
         private readonly List<BaseUIObject> _otherElements = [];
 
         public HeadsUpDisplay(
@@ -62,7 +61,7 @@ namespace Fun.SimpleGame.UI.HUDWidgets
             InitializeFrame(out _frameVertices, out _frameIndices, out _frameTransform, out _frameColor);
 
             //Initialize elements of the frame
-            InitializeFrameElements(addObjectHandler, resourceManager, out _elements);
+            InitializeFrameElements(addObjectHandler, resourceManager);
 
             //Initialize player's health-bar
             camera.GetExtents(out float width, out float height);
@@ -115,68 +114,52 @@ namespace Fun.SimpleGame.UI.HUDWidgets
 
         private void InitializeFrameElements(
             Action<Engine.Entities.BaseObject> addObjectHandler,
-            IResourceManager resourceManager,
-            out Dictionary<AssetType, BaseUIObject> elements)
+            IResourceManager resourceManager)
         {
             var x = -200f;
             var y = -490f;
             var size = new Vector2(40f, 40f);
 
-            elements = new Dictionary<AssetType, BaseUIObject>
-            {
-                {
-                    AssetType.Yellow,
-                    new Icon(size,
-                        new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/41") },
-                        new Vector2(x, y))
-                },
-                {
-                    AssetType.Green,
-                    new Icon(size,
-                        new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/42") },
-                        new Vector2(20f + x + size.X, y))
-                },
-                {
-                    AssetType.Blue,
-                    new Icon(size,
-                        new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/43") },
-                        new Vector2(20f * 2 + x + size.X * 2, y))
-                },
-                {
-                    AssetType.Red,
-                    new Icon(size,
-                        new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/44") },
-                        new Vector2(20f * 3 + x + size.X * 3, y))
-                },
-                {
-                    AssetType.Coin,
-                    new Icon(size,
-                        new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/45") },
-                        new Vector2(20f * 4 + x + size.X * 4, y))
-                },
-                {
-                    AssetType.Health,
-                    new Button(size,
-                        new TexturedButtonOption
-                        {
-                            NormalTexture = resourceManager.LoadTexture("Textures/UI/PickUps/46"),
-                            OnClick = () => _inventoryManager.IncreaseHealth(_player)
-                        },
-                        new Vector2(20f * 5 + x + size.X * 5, y))
-                },
-                {
-                    AssetType.Shield,
-                    new Button(size,
-                        new TexturedButtonOption
-                        {
-                            NormalTexture = resourceManager.LoadTexture("Textures/UI/PickUps/47"),
-                            OnClick = () => _inventoryManager.ApplyShield(_player)
-                        },
-                        new Vector2(20f * 6 + x + size.X * 6, y))
-                }
-            };
+            _elements.Add(
+                AssetType.Yellow,
+                new Icon(size,
+                    new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/41") },
+                    new Vector2(x, y))
+            );
+            _elements.Add(AssetType.Green,
+                new Icon(size,
+                    new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/42") },
+                    new Vector2(20f + x + size.X, y)));
+            _elements.Add(AssetType.Blue,
+                new Icon(size,
+                    new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/43") },
+                    new Vector2(20f * 2 + x + size.X * 2, y)));
+            _elements.Add(AssetType.Red,
+                new Icon(size,
+                    new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/44") },
+                    new Vector2(20f * 3 + x + size.X * 3, y)));
+            _elements.Add(AssetType.Coin,
+                new Icon(size,
+                    new IconOption { Texture = resourceManager.LoadTexture("Textures/UI/PickUps/45") },
+                    new Vector2(20f * 4 + x + size.X * 4, y)));
+            _elements.Add(AssetType.Health,
+                new Button(size,
+                    new TexturedButtonOption
+                    {
+                        NormalTexture = resourceManager.LoadTexture("Textures/UI/PickUps/46"),
+                        OnClick = () => _inventoryManager.IncreaseHealth(_player)
+                    },
+                    new Vector2(20f * 5 + x + size.X * 5, y)));
+            _elements.Add(AssetType.Shield,
+                new Button(size,
+                    new TexturedButtonOption
+                    {
+                        NormalTexture = resourceManager.LoadTexture("Textures/UI/PickUps/47"),
+                        OnClick = () => _inventoryManager.ApplyShield(_player)
+                    },
+                    new Vector2(20f * 6 + x + size.X * 6, y)));
 
-            foreach (var element in elements.Values)
+            foreach (var element in _elements.Values)
             {
                 addObjectHandler(element);
             }

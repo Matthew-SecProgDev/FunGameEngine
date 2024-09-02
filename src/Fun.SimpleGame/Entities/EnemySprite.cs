@@ -94,22 +94,22 @@ namespace Fun.SimpleGame.Entities
             this.InitializeAnimationManager();
             this.InitializeBloodSplashEffect();
 
-            const string footstepPath = "Audio/Sounds/footstep_sound";
+            const string footstepPath = "Audio/Sounds/footstep";
             var audioSettingsFootstep = new AudioSettings(0.2f, 0f, 0f);
             var audioTrackFootstep = new AudioTrack(_resourceManager.LoadSound(footstepPath), audioSettingsFootstep);
             _soundEffectManager.RegisterSound(GlobalSound.Footstep, audioTrackFootstep);
 
             var weaponSettingsSlash = new AudioSettings(0.4f, 0f, 0f);
 
-            const string slashPath = "Audio/Sounds/slash_sound";
+            const string slashPath = "Audio/Sounds/slash";
             var audioTrackSlash = new AudioTrack(_resourceManager.LoadSound(slashPath), weaponSettingsSlash);
             _soundEffectManager.RegisterSound(EnemySound.Slash, audioTrackSlash);
 
-            const string swordPath = "Audio/Sounds/sword_sound";
+            const string swordPath = "Audio/Sounds/sword";
             var audioTrackSword = new AudioTrack(_resourceManager.LoadSound(swordPath), weaponSettingsSlash);
             _soundEffectManager.RegisterSound(EnemySound.Sword, audioTrackSword);
 
-            const string sword2Path = "Audio/Sounds/sword_sound2";
+            const string sword2Path = "Audio/Sounds/sword2";
             var audioTrackSword2 = new AudioTrack(_resourceManager.LoadSound(sword2Path), weaponSettingsSlash);
             _soundEffectManager.RegisterSound(EnemySound.SwordD, audioTrackSword2);
 

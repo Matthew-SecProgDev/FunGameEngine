@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Fun.Engine
 {
@@ -59,20 +60,31 @@ namespace Fun.Engine
             var displayMode = GraphicsDevice.DisplayMode;
             _graphics.PreferredBackBufferWidth = (int)(displayMode.Width * 0.85f);
             _graphics.PreferredBackBufferHeight = (int)(displayMode.Height * 0.85f);
-            _graphics.ApplyChanges();
 
-            _screen = new Graphics.Screen(this, _designedResolutionWidth, _designedResolutionHeight);
-            _sprites = new Graphics.Sprites(this);
-            //_shapes = new Graphics.Shapes(this);
-            _shapes = new Graphics.Shapes(_sprites);
-            _screenShake = new Graphics.ScreenShake();
-            _camera = new Graphics.Camera(_screen, _screenShake);
-            //_camera.Zoom = 5;
-
+            //_graphics.
             //GraphicsDevice.DepthStencilState = new DepthStencilState
             //{
             //    DepthBufferEnable = true
             //};
+
+            //GraphicsDevice.BlendState = BlendState.Opaque;
+            //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+
+            _graphics.GraphicsDevice.DepthStencilState = new DepthStencilState
+            {
+                DepthBufferEnable = true
+            };
+
+            _graphics.ApplyChanges();
+
+            _screen = new Graphics.Screen(this, _designedResolutionWidth, _designedResolutionHeight);
+            _sprites = new Graphics.Sprites(this);
+            _shapes = new Graphics.Shapes(this);
+            _screenShake = new Graphics.ScreenShake();
+            _camera = new Graphics.Camera(_screen, _screenShake);
+            //_camera.Zoom = 5;
+
+            
 
             base.Initialize();
         }

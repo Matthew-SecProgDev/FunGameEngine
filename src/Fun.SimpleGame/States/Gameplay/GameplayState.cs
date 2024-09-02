@@ -11,7 +11,7 @@ using Fun.SimpleGame.Entities;
 using Fun.SimpleGame.Managers;
 using Fun.SimpleGame.Managers.CollisionRules;
 using Fun.SimpleGame.Managers.Interfaces;
-using Fun.SimpleGame.UI.HUDWidgets;
+using Fun.SimpleGame.UI.HUDs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using RNG = Fun.Engine.Utilities.RandomNumberGenerator;
@@ -54,8 +54,8 @@ namespace Fun.SimpleGame.States.Gameplay
             InitializeEnemyManager();
             InitializeCollisionRules();
 
-            const string music1 = "Audio/Music/battle_music";
-            const string music2 = "Audio/Music/battle_music2";
+            const string music1 = "Audio/Music/battle";
+            const string music2 = "Audio/Music/battle2";
             var audioSettings = new AudioSettings(0.3f, 0f, 0f);
             _backgroundMusicManager.SetBackgroundMusic([
                 new AudioTrack(ResourceManager.LoadSound(music1), audioSettings),
@@ -156,7 +156,7 @@ namespace Fun.SimpleGame.States.Gameplay
 
             _collisionManager.Update();
 
-            //_backgroundMusicManager.PlayMusic();
+            _backgroundMusicManager.PlayMusic();
         }
 
         private void InitializeTerrainBackground()

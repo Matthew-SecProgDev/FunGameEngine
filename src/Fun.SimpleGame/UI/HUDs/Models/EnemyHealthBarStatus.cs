@@ -1,4 +1,4 @@
-﻿namespace Fun.SimpleGame.UI.HUDWidgets.Models
+﻿namespace Fun.SimpleGame.UI.HUDs.Models
 {
     public class EnemyHealthBarStatus
     {

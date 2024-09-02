@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Fun.Engine.Physics;
 using Fun.SimpleGame.Entities;
-using Fun.SimpleGame.UI.HUDWidgets;
+using Fun.SimpleGame.UI.HUDs;
 
 namespace Fun.SimpleGame.Managers
 {

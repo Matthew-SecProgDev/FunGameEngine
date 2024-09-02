@@ -67,26 +67,26 @@ namespace Fun.SimpleGame.Entities
             InitializeAnimationManager();
             InitializeBloodSplashEffect();
 
-            const string footstepPath = "Audio/Sounds/footstep_sound";
+            const string footstepPath = "Audio/Sounds/footstep";
             var audioSettingsFootstep = new AudioSettings(0.2f, 0f, 0f);
             var audioTrackFootstep = new AudioTrack(resourceManager.LoadSound(footstepPath), audioSettingsFootstep);
             _soundEffectManager.RegisterSound(GlobalSound.Footstep, audioTrackFootstep);
 
             var weaponSettingsSlash = new AudioSettings(0.4f, 0f, 0f);
 
-            const string bowPath = "Audio/Sounds/slingshot_sound";
+            const string bowPath = "Audio/Sounds/slingshot";
             var audioTrackBow = new AudioTrack(resourceManager.LoadSound(bowPath), weaponSettingsSlash);
             _soundEffectManager.RegisterSound(PlayerSound.Bow, audioTrackBow);
 
-            const string knifeDrawPath = "Audio/Sounds/knife-draw_sound";
+            const string knifeDrawPath = "Audio/Sounds/knife-draw";
             var audioTrackKnifeDraw = new AudioTrack(resourceManager.LoadSound(knifeDrawPath), weaponSettingsSlash);
             _soundEffectManager.RegisterSound(PlayerSound.KnifeDraw, audioTrackKnifeDraw);
 
-            const string swingKnifePath = "Audio/Sounds/swing-knife_sound";
+            const string swingKnifePath = "Audio/Sounds/swing-knife";
             var audioTrackSwingKnife = new AudioTrack(resourceManager.LoadSound(swingKnifePath), weaponSettingsSlash);
             _soundEffectManager.RegisterSound(PlayerSound.SwingKnife, audioTrackSwingKnife);
 
-            const string hitBowPath = "Audio/Sounds/knife-throw_sound";//we don't need to add _sound at the end of file
+            const string hitBowPath = "Audio/Sounds/knife-throw";
             var audioTrackHitBow = new AudioTrack(resourceManager.LoadSound(hitBowPath), weaponSettingsSlash);
             _soundEffectManager.RegisterSound(PlayerSound.HitBow, audioTrackHitBow);
         }

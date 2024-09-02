@@ -17,67 +17,67 @@
 /importer:OggImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Music/battle_music.ogg;Audio/Music/battle_music.ogg
+/build:../Assets/Audio/Music/battle_music.ogg;Audio/Music/battle.ogg
 
 #begin ../Assets/Audio/Music/battle_music2.ogg
 /importer:OggImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Music/battle_music2.ogg;Audio/Music/battle_music2.ogg
+/build:../Assets/Audio/Music/battle_music2.ogg;Audio/Music/battle2.ogg
 
 #begin ../Assets/Audio/Sounds/footstep_sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/footstep_sound.wav;Audio/Sounds/footstep_sound.wav
+/build:../Assets/Audio/Sounds/footstep_sound.wav;Audio/Sounds/footstep.wav
 
 #begin ../Assets/Audio/Sounds/knife-draw_sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/knife-draw_sound.wav;Audio/Sounds/knife-draw_sound.wav
+/build:../Assets/Audio/Sounds/knife-draw_sound.wav;Audio/Sounds/knife-draw.wav
 
 #begin ../Assets/Audio/Sounds/knife-throw_sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/knife-throw_sound.wav;Audio/Sounds/knife-throw_sound.wav
+/build:../Assets/Audio/Sounds/knife-throw_sound.wav;Audio/Sounds/knife-throw.wav
 
 #begin ../Assets/Audio/Sounds/slash_sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/slash_sound.wav;Audio/Sounds/slash_sound.wav
+/build:../Assets/Audio/Sounds/slash_sound.wav;Audio/Sounds/slash.wav
 
 #begin ../Assets/Audio/Sounds/slingshot_sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/slingshot_sound.wav;Audio/Sounds/slingshot_sound.wav
+/build:../Assets/Audio/Sounds/slingshot_sound.wav;Audio/Sounds/slingshot.wav
 
 #begin ../Assets/Audio/Sounds/slingshot_sound3.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/slingshot_sound3.wav;Audio/Sounds/slingshot_sound3.wav
+/build:../Assets/Audio/Sounds/slingshot_sound3.wav;Audio/Sounds/slingshot2.wav
 
 #begin ../Assets/Audio/Sounds/swing-knife_sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/swing-knife_sound.wav;Audio/Sounds/swing-knife_sound.wav
+/build:../Assets/Audio/Sounds/swing-knife_sound.wav;Audio/Sounds/swing-knife.wav
 
 #begin ../Assets/Audio/Sounds/sword_sound.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/sword_sound.wav;Audio/Sounds/sword_sound.wav
+/build:../Assets/Audio/Sounds/sword_sound.wav;Audio/Sounds/sword.wav
 
 #begin ../Assets/Audio/Sounds/sword_sound2.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:../Assets/Audio/Sounds/sword_sound2.wav;Audio/Sounds/sword_sound2.wav
+/build:../Assets/Audio/Sounds/sword_sound2.wav;Audio/Sounds/sword2.wav
 
 #begin ../Assets/Fonts/font.spritefont
 /importer:FontDescriptionImporter
@@ -168,7 +168,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Enemies/Enemy1/enemy1_attack1.png;Textures/Enemies/Enemy1/enemy1_attack1.png
+/build:../Assets/Textures/Enemies/Enemy1/enemy1_attack1.png;Textures/Enemies/Enemy1/attack1.png
 
 #begin ../Assets/Textures/Enemies/Enemy1/enemy1_attack2.png
 /importer:TextureImporter
@@ -180,7 +180,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Enemies/Enemy1/enemy1_attack2.png;Textures/Enemies/Enemy1/enemy1_attack2.png
+/build:../Assets/Textures/Enemies/Enemy1/enemy1_attack2.png;Textures/Enemies/Enemy1/attack2.png
 
 #begin ../Assets/Textures/Enemies/Enemy1/enemy1_attack3.png
 /importer:TextureImporter
@@ -192,7 +192,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Enemies/Enemy1/enemy1_attack3.png;Textures/Enemies/Enemy1/enemy1_attack3.png
+/build:../Assets/Textures/Enemies/Enemy1/enemy1_attack3.png;Textures/Enemies/Enemy1/attack3.png
 
 #begin ../Assets/Textures/Enemies/Enemy1/enemy1_dead.png
 /importer:TextureImporter
@@ -204,7 +204,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Enemies/Enemy1/enemy1_dead.png;Textures/Enemies/Enemy1/enemy1_dead.png
+/build:../Assets/Textures/Enemies/Enemy1/enemy1_dead.png;Textures/Enemies/Enemy1/dead.png
 
 #begin ../Assets/Textures/Enemies/Enemy1/enemy1_idle.png
 /importer:TextureImporter
@@ -216,7 +216,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Enemies/Enemy1/enemy1_idle.png;Textures/Enemies/Enemy1/enemy1_idle.png
+/build:../Assets/Textures/Enemies/Enemy1/enemy1_idle.png;Textures/Enemies/Enemy1/idle.png
 
 #begin ../Assets/Textures/Enemies/Enemy1/enemy1_walk.png
 /importer:TextureImporter
@@ -228,7 +228,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Enemies/Enemy1/enemy1_walk.png;Textures/Enemies/Enemy1/enemy1_walk.png
+/build:../Assets/Textures/Enemies/Enemy1/enemy1_walk.png;Textures/Enemies/Enemy1/walk.png
 
 #begin ../Assets/Textures/Enemies/Enemy1/hurt.png
 /importer:TextureImporter
@@ -372,7 +372,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_arrow.png;Textures/Player/player_arrow.png
+/build:../Assets/Textures/Player/player_arrow.png;Textures/Player/arrow.png
 
 #begin ../Assets/Textures/Player/player_attack1.png
 /importer:TextureImporter
@@ -384,7 +384,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_attack1.png;Textures/Player/player_attack1.png
+/build:../Assets/Textures/Player/player_attack1.png;Textures/Player/attack1.png
 
 #begin ../Assets/Textures/Player/player_attack2.png
 /importer:TextureImporter
@@ -396,7 +396,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_attack2.png;Textures/Player/player_attack2.png
+/build:../Assets/Textures/Player/player_attack2.png;Textures/Player/attack2.png
 
 #begin ../Assets/Textures/Player/player_attack3.png
 /importer:TextureImporter
@@ -408,7 +408,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_attack3.png;Textures/Player/player_attack3.png
+/build:../Assets/Textures/Player/player_attack3.png;Textures/Player/attack3.png
 
 #begin ../Assets/Textures/Player/player_dead.png
 /importer:TextureImporter
@@ -420,7 +420,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_dead.png;Textures/Player/player_dead.png
+/build:../Assets/Textures/Player/player_dead.png;Textures/Player/dead.png
 
 #begin ../Assets/Textures/Player/player_idle.png
 /importer:TextureImporter
@@ -432,7 +432,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_idle.png;Textures/Player/player_idle.png
+/build:../Assets/Textures/Player/player_idle.png;Textures/Player/idle.png
 
 #begin ../Assets/Textures/Player/player_shot1.png
 /importer:TextureImporter
@@ -444,7 +444,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_shot1.png;Textures/Player/player_shot1.png
+/build:../Assets/Textures/Player/player_shot1.png;Textures/Player/shot.png
 
 #begin ../Assets/Textures/Player/player_walk.png
 /importer:TextureImporter
@@ -456,7 +456,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/Player/player_walk.png;Textures/Player/player_walk.png
+/build:../Assets/Textures/Player/player_walk.png;Textures/Player/walk.png
 
 #begin ../Assets/Textures/Splash/splash_screen.png
 /importer:TextureImporter
@@ -492,7 +492,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/UI/HealthBar/healthbar_background.png;Textures/UI/HealthBar/healthbar_background.png
+/build:../Assets/Textures/UI/HealthBar/healthbar_background.png;Textures/UI/HealthBar/background.png
 
 #begin ../Assets/Textures/UI/HealthBar/healthbar_fill.png
 /importer:TextureImporter
@@ -504,7 +504,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:../Assets/Textures/UI/HealthBar/healthbar_fill.png;Textures/UI/HealthBar/healthbar_fill.png
+/build:../Assets/Textures/UI/HealthBar/healthbar_fill.png;Textures/UI/HealthBar/fill.png
 
 #begin ../Assets/Textures/UI/PickUps/41.png
 /importer:TextureImporter

@@ -1,4 +1,4 @@
-﻿namespace Fun.SimpleGame.UI.HUDWidgets
+﻿namespace Fun.SimpleGame.UI.HUDs
 {
     public enum AssetType
     {

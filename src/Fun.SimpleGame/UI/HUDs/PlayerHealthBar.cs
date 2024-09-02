@@ -1,12 +1,12 @@
 ﻿using Fun.Engine.Events;
 using Fun.Engine.UI;
 using Fun.SimpleGame.States.Gameplay;
-using Fun.SimpleGame.UI.HUDWidgets.Models;
+using Fun.SimpleGame.UI.HUDs.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using FunMath = Fun.Engine.Utilities.MathHelper;
 
-namespace Fun.SimpleGame.UI.HUDWidgets
+namespace Fun.SimpleGame.UI.HUDs
 {
     public class PlayerHealthBar : BaseUIObject
     {

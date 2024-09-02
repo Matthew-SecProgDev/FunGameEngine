@@ -1,11 +1,11 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using Fun.Engine;
 using Fun.Engine.Entities.Interfaces;
 using Fun.Engine.Physics;
 using Fun.Engine.Resources;
+using Microsoft.Xna.Framework;
 
-namespace Fun.SimpleGame.UI.HUDWidgets
+namespace Fun.SimpleGame.UI.HUDs
 {
     public class Collectible : BaseGameCollidableObject, IDimensions
     {
