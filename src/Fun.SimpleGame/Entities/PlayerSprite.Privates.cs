@@ -464,7 +464,7 @@ namespace Fun.SimpleGame.Entities
 
             _animationController.BindAnimationCycle(
                 _animationController.CreateAnimationCycle(
-                    "hurt",
+                    "hurt",//player_hurt
                     new AnimationCycleOption
                     {
                         FramePosX = [30, 158],
