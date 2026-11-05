@@ -4,7 +4,7 @@ using Fun.Engine.States;
 using Fun.Engine.UI;
 using Fun.Engine.UI.Labels;
 using Fun.Engine.UI.Sliders;
-using Fun.Engine.UI.ToggleSwitchs.Models;
+using Fun.Engine.UI.ToggleSwitches.Models;
 using Microsoft.Xna.Framework;
 using Ex = Fun.SimpleGame.UI.UIExtensions;
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Fun.Engine.UI.ToggleSwitchs
+namespace Fun.Engine.UI.ToggleSwitches
 {
     public sealed class ToggleSwitch : BaseUIObject
     {

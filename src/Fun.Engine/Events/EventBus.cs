@@ -2,7 +2,6 @@
 {
     public class EventBus : Interfaces.IEventBus
     {
-        //private readonly Dictionary<Type, List<Action<BaseGameStateEvent>>> _handlers = [];
         private readonly Dictionary<Type, List<Delegate>> _handlers = new();
 
         public void Subscribe<T>(Action<T> handler) where T : BaseGameStateEvent

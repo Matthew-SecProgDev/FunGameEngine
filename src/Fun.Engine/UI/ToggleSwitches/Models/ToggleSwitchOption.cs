@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-namespace Fun.Engine.UI.ToggleSwitchs.Models
+namespace Fun.Engine.UI.ToggleSwitches.Models
 {
     public enum DefaultState
     {
