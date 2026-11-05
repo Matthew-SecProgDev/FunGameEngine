@@ -11,7 +11,9 @@
             _passiveObjects = passiveObjects;
         }
 
-        public void DetectCollisions(TActiveObject activeObject, Action<TPassiveObject, TActiveObject> collisionHandler)
+        public void DetectCollisions(
+            TActiveObject activeObject,
+            Action<TPassiveObject, TActiveObject> collisionHandler)
         {
             for (var i = 0; i < _passiveObjects.Count; i++)
             {
@@ -26,19 +28,24 @@
             IReadOnlyList<TActiveObject> activeObjects,
             Action<TPassiveObject, TActiveObject> collisionHandler)
         {
+            var copiedList = new List<TActiveObject>(activeObjects.Count);
+
             for (var i = 0; i < _passiveObjects.Count; i++)
             {
-                var copiedList = new List<TActiveObject>();
+                copiedList.Clear();
+
                 for (var j = 0; j < activeObjects.Count; j++)
                 {
                     copiedList.Add(activeObjects[j]);
                 }
 
+                var passiveObject = _passiveObjects[i];
+
                 foreach (var activeObject in copiedList)
                 {
-                    if (DetectCollision(_passiveObjects[i], activeObject))
+                    if (DetectCollision(passiveObject, activeObject))
                     {
-                        collisionHandler(_passiveObjects[i], activeObject);
+                        collisionHandler(passiveObject, activeObject);
                     }
                 }
             }
