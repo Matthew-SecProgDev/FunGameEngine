@@ -2,7 +2,7 @@
 
 namespace Fun.SimpleGame.Configurations.Game
 {
-    public class GameConfigParser : IGameConfigParser
+    public class GameConfigParser
     {
         public GameConfig Parse(string fileName)
         {

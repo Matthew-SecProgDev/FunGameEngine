@@ -19,7 +19,7 @@ namespace Fun.SimpleGame.Entities
 
         public void Update(float elapsedTime)
         {
-            PositionX = Position.X + Speed * MovementDirection.X * elapsedTime * 1000;//refactor it
+            PositionX = Position.X + Speed * MovementDirection.X * elapsedTime * 1000;
         }
 
         public override void Render(Engine.Graphics.Sprites sprites)

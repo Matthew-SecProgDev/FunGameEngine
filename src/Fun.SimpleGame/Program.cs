@@ -1,10 +1,10 @@
-﻿using Fun.Engine.Configurations;
-using Fun.Engine;
+﻿using Fun.Engine;
+using Fun.Engine.Configurations;
 using Fun.SimpleGame.States.Gameplay;
-using System;
-using System.IO;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.IO;
 
 namespace Fun.SimpleGame
 {
