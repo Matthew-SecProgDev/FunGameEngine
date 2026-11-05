@@ -36,7 +36,7 @@ namespace Fun.Engine.Graphics
         public ScreenShake _screenShake;
         public Screen _screen;
 
-        public Vector2 MouseScreenPosition => Input.Mouse.Instance.GetScreenPosition(_screen);
+        //public Vector2 MouseScreenPosition => Input.Mouse.Instance.GetScreenPosition(_screen);
 
         public Camera(Screen screen, ScreenShake screenShake)
         {

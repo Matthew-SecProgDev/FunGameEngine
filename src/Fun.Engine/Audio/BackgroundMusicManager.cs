@@ -63,16 +63,11 @@ namespace Fun.Engine.Audio
             {
                 if (disposing)
                 {
-                    // Dispose managed state (managed objects)
                     foreach (var track in _musicTracks)
                     {
                         track.Dispose();
                     }
                 }
-
-                // TODO: Override finalizer (destructor) only if there is code to free unmanaged resources
-                // Free unmanaged resources (unmanaged objects)
-                // Set large fields to null
 
                 _isDisposed = true;
             }

@@ -69,7 +69,7 @@ namespace Fun.SimpleGame.States.Gameplay
         public override void HandleInput(GameTime gameTime)
         {
             InputManager.Update();
-            InputManager.UpdateMouseWorldPosition(Screen, Camera);
+            //InputManager.UpdateMouseWorldPosition(Screen, Camera);
 
             var elapsedTime = gameTime.GetElapsedSeconds();
             InputManager.GetCommands(gameTime, cmd =>
@@ -155,7 +155,7 @@ namespace Fun.SimpleGame.States.Gameplay
         private void InitializePlayer()
         {
             Camera.GetExtents(out float width, out float height);
-            var halfHeight = height * 0.5f;
+            //var halfHeight = height * 0.5f;
             var playerPosY = -200;
             var playerPosX = -(width * 0.5f) * 0.85f;
             _player = new PlayerSprite(ResourceManager, _eventBus)

@@ -64,7 +64,6 @@ namespace Fun.Engine.Graphics
                 _effect.Projection = camera.Projection;
                 _effect.View = camera.View * Matrix.CreateTranslation(camera._screenShake.ShakeOffset.X, camera._screenShake.ShakeOffset.Y, 0f);
 
-                // TODO: Do I really want anisotropic filtering whenever the camera is farther away then the base Z.
                 if (camera.Z > camera.BaseZ)
                 {
                     sampler = SamplerState.AnisotropicClamp;

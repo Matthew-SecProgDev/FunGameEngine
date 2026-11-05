@@ -254,7 +254,7 @@ namespace Fun.SimpleGame.Managers
 
         private void CleanDestroyed()
         {
-            for (var i = 0; i < EnemyHitboxes.Count; i++)
+            for (var i = EnemyHitboxes.Count - 1; i >= 0; --i)
             {
                 if (EnemyHitboxes[i].Destroyed)
                 {
@@ -263,7 +263,7 @@ namespace Fun.SimpleGame.Managers
                 }
             }
 
-            for (var i = 0; i < Enemies.Count; i++)
+            for (var i = Enemies.Count - 1; i >= 0; --i)
             {
                 if (Enemies[i].Destroyed)
                 {

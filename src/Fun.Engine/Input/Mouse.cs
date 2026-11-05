@@ -85,7 +85,7 @@ namespace Fun.Engine.Input
                    _previousState.MiddleButton == ButtonState.Pressed;
         }
 
-        public Vector2 GetScreenPosition(Graphics.Screen screen)
+        /*public Vector2 GetScreenPosition(Graphics.Screen screen)
         {
 #if DEBUG
             ArgumentNullException.ThrowIfNull(screen);
@@ -145,6 +145,6 @@ namespace Fun.Engine.Input
 
             var result = new Ray(nearPoint, direction);
             return result;
-        }
+        }*/
     }
 }

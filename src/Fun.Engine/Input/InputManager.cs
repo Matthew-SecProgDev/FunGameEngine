@@ -11,11 +11,11 @@ namespace Fun.Engine.Input
             Keyboard.Instance.Update();
         }
 
-        public void UpdateMouseWorldPosition(Graphics.Screen screen, Graphics.Camera camera)
-        {
-            var mouse = Mouse.Instance;
-            mouse.UpdateWorldPosition(mouse.GetWorldPosition(screen, camera));
-        }
+        //public void UpdateMouseWorldPosition(Graphics.Screen screen, Graphics.Camera camera)
+        //{
+        //    var mouse = Mouse.Instance;
+        //    mouse.UpdateWorldPosition(mouse.GetWorldPosition(screen, camera));
+        //}
 
         public void GetCommands(GameTime gameTime, Action<BaseInputCommand> handler)
         {
