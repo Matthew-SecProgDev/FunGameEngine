@@ -5,23 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Fun.Engine.UI.Tooltips
 {
-    // TODO: it must be refactored and inherited from BaseUIObject
-
-
-    //public class PersistentTooltip : SimpleTooltip
-    //{
-    //    private bool isVisible;
-
-    //    public PersistentTooltip(Vector2 size, TooltipOption option, Vector2 position) : base(size, option, position)
-    //    {
-    //    }
-    //}
-
     public class SimpleTooltip : BaseTooltip
     {
-        //    // text should be middle of bound
-        //    // I should determine a position that every time it is hovered by mouse, then display tooltip and
-        //    // when mouse is exited of bound, the tooltip is faded away gradually
         public SimpleTooltip(Vector2 size, TooltipOption option, Vector2 position) : base(size, option, position)
         {
         }
@@ -37,15 +22,15 @@ namespace Fun.Engine.UI.Tooltips
         public Rectangle TooltipBounds
         {
             get => _tooltipBounds; 
-            protected set => _tooltipBounds = value;    //maybe this property should be private, maybe not and init
+            protected set => _tooltipBounds = value;
         }
 
-        public string Text { get; private set; }    //maybe this property should be protected, maybe not
+        public string Text { get; private set; }
 
         public Vector2 TextPosition
         {
             get => _textPosition; 
-            protected set => _textPosition = value;     //maybe this property should be private, maybe not and init
+            protected set => _textPosition = value;
         }
 
         protected SpriteFont Font { get; }
@@ -104,7 +89,7 @@ namespace Fun.Engine.UI.Tooltips
         private Rectangle backgroundRectangle;
         private bool isVisible;
         private double hoverTime;
-        private double tooltipDelay = 1.0;  // Delay in seconds before showing the tooltip
+        private double tooltipDelay = 1.0;
 
         public Tooltip2(string text, SpriteFont font, Texture2D background, Vector2 position)
             : base(position)
@@ -117,7 +102,7 @@ namespace Fun.Engine.UI.Tooltips
 
             Vector2 textSize = font.MeasureString(text);
             backgroundRectangle = new Rectangle((int)position.X, (int)position.Y, (int)textSize.X + 10, (int)textSize.Y + 10);
-            textPosition = new Vector2(position.X + 5, position.Y + 5);  // Small padding from the edge
+            textPosition = new Vector2(position.X + 5, position.Y + 5);
         }
 
         public void Update(GameTime gameTime, Vector2 mousePosition)
@@ -125,7 +110,6 @@ namespace Fun.Engine.UI.Tooltips
             if (backgroundRectangle.Contains(mousePosition))
             {
                 hoverTime += gameTime.GetElapsedSeconds();
-                    //gameTime.ElapsedGameTime.TotalSeconds;
                 if (hoverTime >= tooltipDelay)
                 {
                     isVisible = true;
@@ -134,11 +118,11 @@ namespace Fun.Engine.UI.Tooltips
             else
             {
                 isVisible = false;
-                hoverTime = 0;  // Reset the timer
+                hoverTime = 0;
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)//Sprites sprites
+        public override void Draw(SpriteBatch spriteBatch)
         {
             if (isVisible)
             {

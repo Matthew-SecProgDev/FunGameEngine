@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Fun.Engine.UI
 {
-    // TODO: it must be removed
     public abstract class UIElement
     {
         public Vector2 Position { get; set; }
@@ -15,7 +14,7 @@ namespace Fun.Engine.UI
             IsVisible = true;
         }
 
-        public abstract void Draw(SpriteBatch spriteBatch);//Sprites sprites
+        public abstract void Draw(SpriteBatch spriteBatch);
         public abstract void Update(GameTime gameTime);
     }
 }

@@ -5,7 +5,7 @@ namespace Fun.Engine.UI.Labels
 {
     public sealed class Label : BaseUIObject
     {
-        private /*readonly*/ string _text;//temporary
+        private string _text;
         private readonly SpriteFont _font;
         private readonly Color _penColor;
 
@@ -16,7 +16,7 @@ namespace Fun.Engine.UI.Labels
             _penColor = option.PenColor;
         }
 
-        public void SetText(string text)//temporary
+        public void SetText(string text)
         {
             _text = text;
         }

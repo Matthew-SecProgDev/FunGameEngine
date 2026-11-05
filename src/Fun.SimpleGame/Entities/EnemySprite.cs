@@ -23,7 +23,7 @@ namespace Fun.SimpleGame.Entities
     {
         private const float WalkingSpeed = 1.2f;
         private const float LimitedDistanceX = 70f;
-        private const float FadeDuration = 4.0f; // Fade-in duration
+        private const float FadeDuration = 4.0f;
 
         private readonly Dictionary<EnemyState, PlayerEffect> _bloodSpatter;
         private readonly float _attackDuration = (float)TimeSpan.FromSeconds(1.5).TotalSeconds;
@@ -40,7 +40,7 @@ namespace Fun.SimpleGame.Entities
         private bool _isAttacking;
 
         private SimpleEmitterGenerator _emitterGenerator;
-        private float _opacity; // Start with 0% transparency
+        private float _opacity;
         private float _elapsedTime;
         
         private Vector2 _playerPosition;
@@ -67,7 +67,7 @@ namespace Fun.SimpleGame.Entities
             init => _health = value;
         }
 
-        public Configurations.Enemy.Enums.EnemyRole Role { get; init; }//refactor it
+        public Configurations.Enemy.Enums.EnemyRole Role { get; init; }
 
         public EnemySprite(
             IResourceManager resourceManager,
@@ -77,12 +77,12 @@ namespace Fun.SimpleGame.Entities
         {
             _resourceManager = resourceManager;
             _eventBus = eventBus;
-            _enemyHitboxes = enemyHitboxes;//I must use another way instead of this, refactor it
+            _enemyHitboxes = enemyHitboxes;
             _soundEffectManager = new SoundEffectManager();
 
             if (attackDuration != null)
             {
-                _attackDuration = (float)TimeSpan.FromSeconds(attackDuration.Value).TotalSeconds;//refactor it
+                _attackDuration = (float)TimeSpan.FromSeconds(attackDuration.Value).TotalSeconds;
             }
 
             _bloodSpatter = new Dictionary<EnemyState, PlayerEffect>(3);
@@ -174,7 +174,6 @@ namespace Fun.SimpleGame.Entities
                 {
                     _elapsedTime += gameTime.GetElapsedSeconds();
 
-                    // Fade-in logic
                     if (_elapsedTime < EnemySprite.FadeDuration)
                     {
                         _opacity = XnaMathHelper.Lerp(0.0f, 1f, _elapsedTime / EnemySprite.FadeDuration);
@@ -189,7 +188,7 @@ namespace Fun.SimpleGame.Entities
 
                 this.UpdateAttackState(gameTime);
 
-                if (_playerPosition != Vector2.Zero)//refactor it
+                if (_playerPosition != Vector2.Zero)
                 {
                     var playerPosition = new Vector2(-1 * this.ScreenPosition.X + _playerPosition.X, _playerPosition.Y);
 

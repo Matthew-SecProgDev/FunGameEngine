@@ -11,7 +11,7 @@ namespace Fun.Engine.Physics
     {
         private readonly List<CollisionBox2D> _collisionBoxes = new(3);
 
-        private Texture2D? _cbTexture;//CollisionBox2D
+        private Texture2D? _cbTexture;
 
         public BaseGameCollidableObject? Owner { get; init; }
 

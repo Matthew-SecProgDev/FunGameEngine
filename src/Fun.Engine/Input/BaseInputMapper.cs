@@ -15,7 +15,6 @@ namespace Fun.Engine.Input
             return new List<BaseInputCommand>();
         }
 
-        // It should be refactored
         public virtual IEnumerable<BaseInputCommand> GetGamePadState(GamePadState state)
         {
             return new List<BaseInputCommand>();

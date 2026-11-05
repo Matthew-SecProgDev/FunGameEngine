@@ -15,20 +15,17 @@ namespace Fun.Engine.UI
 
         public new Vector2 Position
         {
-            //check it
             get => _position;
             set => _position = value;
         }
 
         public new float PositionX
         {
-            //check it
             set => _position.X = value;
         }
 
         public new float PositionY
         {
-            //check it
             set => _position.Y = value;
         }
 

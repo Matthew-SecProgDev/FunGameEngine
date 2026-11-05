@@ -109,7 +109,6 @@ namespace Fun.SimpleGame.Managers
             }
 
             _enemyConfig.EnemySpawns.RemoveAll(i => i.BuildTime.StartImmediately);
-            //_enemyConfig.EnemyGroups.RemoveAll(i => i.EnemySpawns.Any(j => j.BuildTime.StartImmediately));
         }
 
         private void CreateEnemiesGradually()
@@ -118,7 +117,7 @@ namespace Fun.SimpleGame.Managers
             var halfHeight = height * 0.5f;
             var halfWidth = width * 0.5f;
 
-            var screenPositionX = -1 * (int)_screenPosition.X;//- halfWidth * 0.15f;
+            var screenPositionX = -1 * (int)_screenPosition.X;
 
             var counter = 0;
 
@@ -259,8 +258,8 @@ namespace Fun.SimpleGame.Managers
             {
                 if (EnemyHitboxes[i].Destroyed)
                 {
-                    HandleRemoveObject(EnemyHitboxes[i]); //check it
-                    EnemyHitboxes.Remove(EnemyHitboxes[i]); //check it
+                    HandleRemoveObject(EnemyHitboxes[i]);
+                    EnemyHitboxes.Remove(EnemyHitboxes[i]);
                 }
             }
 

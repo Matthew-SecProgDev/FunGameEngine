@@ -131,8 +131,6 @@ namespace Fun.SimpleGame.Entities
                 }
             }
 
-            // arrows must be removed when they are out of the screen or camera range
-
             for (var i = 0; i < Arrows.Count; i++)
             {
                 if (Arrows[i].Destroyed)
@@ -269,7 +267,6 @@ namespace Fun.SimpleGame.Entities
             Hitboxes.Add(hitbox);
 
             _isAllowedAttack = false;
-            Console.WriteLine("attack..........");
         }
 
         private void Attack_4(GameTime gameTime)
@@ -293,7 +290,6 @@ namespace Fun.SimpleGame.Entities
 
         private void CreateArrow()
         {
-            //TODO: it should be refactored
             var isMovingRight = MovementDirection == Vector2.UnitX;
             var x = isMovingRight ? Position.X + Width / 2f : Position.X + 20f;
             var y = Position.Y + 60f;

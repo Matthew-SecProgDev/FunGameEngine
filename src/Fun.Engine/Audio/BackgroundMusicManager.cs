@@ -16,7 +16,7 @@ namespace Fun.Engine.Audio
             }
 
             _musicTracks = tracks.Select(i => i.CreateInstance()).ToArray();
-            _musicTrackIndex = 0; // Initialize to the first track
+            _musicTrackIndex = 0;
         }
 
         public void PlayMusic()

@@ -71,25 +71,6 @@ namespace Fun.SimpleGame.States.Gameplay
             InputManager.Update();
             InputManager.UpdateMouseWorldPosition(Screen, Camera);
 
-            //var gameEngineMouse = Engine.Input.Mouse.Instance;
-            //gameEngineMouse.Update();
-            //if (Engine.Input.Keyboard.Instance.IsKeyPressed(Keys.F))
-            //{
-            //    Camera.GetExtents(out var left, out var right, out var bottom, out var top);
-            //    Console.WriteLine("right:  " + right + "   left:  " + left);
-            //    Console.WriteLine("top:  " + top + "   bottom:  " + bottom);
-
-            //    //Console.WriteLine("Player Position: " + _playerSprite.Position);
-
-            //    //Console.WriteLine("Screen Position: " + _terrainBackgroundSprite.Position);
-
-            //    //Console.WriteLine("Mouse Position(old implementation): " + InputManager.GetMousePosition());
-            //    Console.WriteLine("MouseScreen Position: " + gameEngineMouse.GetScreenPosition(Screen));
-            //    Console.WriteLine("MouseWorld Position: " + gameEngineMouse.GetWorldPosition(Screen, Camera));
-
-            //    Console.WriteLine();
-            //}
-
             var elapsedTime = gameTime.GetElapsedSeconds();
             InputManager.GetCommands(gameTime, cmd =>
             {
@@ -173,10 +154,9 @@ namespace Fun.SimpleGame.States.Gameplay
 
         private void InitializePlayer()
         {
-            // it must be refactored
             Camera.GetExtents(out float width, out float height);
             var halfHeight = height * 0.5f;
-            var playerPosY = -200;//RNG.NextRandom(-halfHeight * 0.60f, halfHeight * 0.10f);
+            var playerPosY = -200;
             var playerPosX = -(width * 0.5f) * 0.85f;
             _player = new PlayerSprite(ResourceManager, _eventBus)
             {
@@ -185,8 +165,8 @@ namespace Fun.SimpleGame.States.Gameplay
                 Height = 128,
                 Width = 128
             };
-            _player.AddObjectHandler += AddObject;//it must be unsubscribed
-            _player.RemoveObjectHandler += RemoveObject;//it must be unsubscribed
+            _player.AddObjectHandler += AddObject;
+            _player.RemoveObjectHandler += RemoveObject;
 
             AddObject(_player);
 
@@ -262,12 +242,10 @@ namespace Fun.SimpleGame.States.Gameplay
             _collisionManager.AddCollisionRule(new HitPlayerByEnemiesAttacks(_eventBus, _enemyManager.EnemyHitboxes, _player));
             _collisionManager.AddCollisionRule(new HitEnemiesByPlayerAttacks(_player.Hitboxes, _enemyManager.Enemies));
             _collisionManager.AddCollisionRule(new HitEnemiesByPlayerShots(_player.Arrows, _enemyManager.Enemies));
-            //_collisionManager.AddCollisionRule(new BlockPlayerMovementOnCollisionWithEnemy(_enemyManager.EnemiesList, _playerSprite));
         }
 
         private void ScreenShake(float duration = 0.4f, float magnitude = 4f)
         {
-            // we later can get duration and magnitude based on each weapon
             Camera.ApplyShake(duration, magnitude);
         }
     }

@@ -15,7 +15,7 @@ namespace Fun.SimpleGame.UI.Tooltips
         {
             var padding = TooltipBounds.Width * 0.15f;
             var x = TooltipBounds.X + padding;
-            var y = TooltipBounds.Y + TooltipBounds.Height / 2f - 10 /*- Font.MeasureString(stringBuilder).Y / 2*/;
+            var y = TooltipBounds.Y + TooltipBounds.Height / 2f - 10;
             UpdateTextPosition((int)x, (int)y);
 
             var buttonOption = new TextButtonOption

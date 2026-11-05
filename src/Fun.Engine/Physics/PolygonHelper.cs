@@ -102,7 +102,6 @@ namespace Fun.Engine.Physics
             triangleIndices = new int[triangleCount * 3];
             var triangleIndex = 0;
 
-            // Finding all ears in polygonIndices
             while (polygonIndices.Count > 3)
             {
                 for (var i = 0; i < polygonIndices.Count; i++)
@@ -118,14 +117,11 @@ namespace Fun.Engine.Physics
                     var currentVertexToPreviousVertex = previousVertex - currentVertex;
                     var currentVertexToNextVertex = nextVertex - currentVertex;
 
-                    // Test1: Checking whether currentVertex is a convex vertex or not?!
                     if (FunMath.CrossProduct(currentVertexToPreviousVertex, currentVertexToNextVertex) < 0f)
                     {
-                        // currentVertex is a reflex vertex, that means internal angle is greater than 180 degree
                         continue;
                     }
 
-                    // Test2: Checking whether an ear contains any polygon vertices or not?!
                     var isEar = true;
                     for (var j = 0; j < vertices.Length; j++)
                     {
@@ -135,11 +131,8 @@ namespace Fun.Engine.Physics
                         }
 
                         var point = vertices[j];
-                        // Passing these three vertices as a triangle (defined by previousVertex,currentVertex,nextVertex)
-                        //      in clockwise winding order to the function
                         if (PolygonHelper.IsPointInTriangle(previousVertex, currentVertex, nextVertex, point))
                         {
-                            // currentVertex is not an ear
                             isEar = false;
                             break;
                         }
@@ -147,12 +140,10 @@ namespace Fun.Engine.Physics
 
                     if (isEar)
                     {
-                        // Adding these three indices in clockwise winding order into triangleIndices
                         triangleIndices[triangleIndex++] = previousIndex;
                         triangleIndices[triangleIndex++] = currentIndex;
                         triangleIndices[triangleIndex++] = nextIndex;
 
-                        // Removing the ear from polygonIndices
                         polygonIndices.RemoveAt(i);
 
                         break;

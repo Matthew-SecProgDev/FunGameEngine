@@ -33,7 +33,6 @@ namespace Fun.Engine.Audio
             {
                 if (disposing)
                 {
-                    // Dispose managed state (managed objects)
                     foreach (var instance in _sounds.Values)
                     {
                         instance.Dispose();
@@ -42,17 +41,12 @@ namespace Fun.Engine.Audio
                     _sounds.Clear();
                 }
 
-                // TODO: Override finalizer (destructor) only if there is code to free unmanaged resources
-                // Free unmanaged resources (unmanaged objects)
-                // Set large fields to null
-
                 _isDisposed = true;
             }
         }
 
         private static void ValidateEnum<TKey>(TKey value) where TKey : Enum
         {
-            //if (!Enum.IsDefined(typeof(TKey), value))
             if (!typeof(TKey).IsDefined(typeof(Attributes.AudioTrackAttribute), false))
             {
                 throw new ArgumentException($"Invalid enum value: {value}", nameof(value));

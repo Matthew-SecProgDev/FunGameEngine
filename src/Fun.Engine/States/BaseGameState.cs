@@ -13,7 +13,7 @@ namespace Fun.Engine.States
     {
         protected bool IsDebugCollisionEnabled { get; set; } = false;
 
-        protected bool _indestructible = false;//it should be refactored
+        protected bool _indestructible = false;
 
         protected bool IsFourViewsEnabled { get; set; } = false;
 
@@ -60,7 +60,6 @@ namespace Fun.Engine.States
             int viewportWidth,
             int viewportHeight)
         {
-            // this function should be refactored and use another way to do these works
             this.ResourceManager = new ResourceManager(contentManager);
             this.Camera = camera;
             this.Screen = screen;
@@ -169,11 +168,8 @@ namespace Fun.Engine.States
             ArgumentNullException.ThrowIfNull(sprites);
 #endif
 
-            // it should be refactored
-            //_objects.OrderBy(i=>i.ZIndex).f
             for (var i = 0; i < _objects.Count; i++)
             {
-                //var @object = _objects[i];
                 if (_objects[i] is { IsActive: true })
                 {
                     if (IsDebugCollisionEnabled && _objects[i] is Physics.BaseGameCollidableObject collidableObject)

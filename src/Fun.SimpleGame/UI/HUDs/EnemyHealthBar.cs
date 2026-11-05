@@ -84,7 +84,6 @@ namespace Fun.SimpleGame.UI.HUDs
             var positionY = (int)Position.Y;
             var sizeY = (int)Size.Y;
 
-            // it should display name pic of each enemy
             var backgroundRect = new Rectangle(positionX, positionY, (int)Size.X, sizeY);
             sprites.Draw(Texture, backgroundRect, null, Color.White);
 

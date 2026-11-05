@@ -36,20 +36,17 @@ namespace Fun.Engine.Input
 
         public bool IsLeftButtonDown()
         {
-            return _currentState.LeftButton == ButtonState.Pressed /*&&
-                   _previousState.LeftButton == ButtonState.Pressed*/;
+            return _currentState.LeftButton == ButtonState.Pressed;
         }
 
         public bool IsRightButtonDown()
         {
-            return _currentState.RightButton == ButtonState.Pressed /*&&
-                   _previousState.RightButton == ButtonState.Pressed*/;
+            return _currentState.RightButton == ButtonState.Pressed;
         }
 
         public bool IsMiddleButtonDown()
         {
-            return _currentState.MiddleButton == ButtonState.Pressed /*&&
-                   _previousState.MiddleButton == ButtonState.Pressed*/;
+            return _currentState.MiddleButton == ButtonState.Pressed;
         }
 
         public bool IsLeftButtonPressed()
@@ -120,42 +117,32 @@ namespace Fun.Engine.Input
             ArgumentNullException.ThrowIfNull(camera);
 #endif
 
-            // Create a viewport based on the game screen.
             var screenViewport = new Viewport(0, 0, screen.Width, screen.Height);
 
-            // Get the mouse pixel coordinates in that screen.
             var mouseScreenPosition = this.GetScreenPosition(screen);
 
-            // Create a ray that starts at the mouse screen position and points "into" the screen towards the game world plane.
             var mouseRay = Mouse.CreateMouseRay(mouseScreenPosition, screenViewport, camera);
 
-            // Plane where the 2D game world takes place.
             var worldPlane = new Plane(new Vector3(0, 0, 1f), 0f);
 
-            // Determine the point where the ray intersects the game world plane.
             var dist = mouseRay.Intersects(worldPlane);
             var ip = mouseRay.Position + mouseRay.Direction * dist.Value;
 
-            // Send the result as a 2D world position vector.
             var result = new Vector2(ip.X, ip.Y);
             return result;
         }
 
         private static Ray CreateMouseRay(Vector2 mouseScreenPosition, Viewport viewport, Graphics.Camera camera)
         {
-            // Near and far points that will indicate the line segment used to define the ray.
             var nearPoint = new Vector3(mouseScreenPosition, 0);
             var farPoint = new Vector3(mouseScreenPosition, 1);
 
-            // Convert the near and far points to world coordinates.
             nearPoint = viewport.Unproject(nearPoint, camera.Projection, camera.View, Matrix.Identity);
             farPoint = viewport.Unproject(farPoint, camera.Projection, camera.View, Matrix.Identity);
 
-            // Determine the direction.
             var direction = farPoint - nearPoint;
             direction.Normalize();
 
-            // Resulting ray starts at the near mouse position and points "into" the screen.
             var result = new Ray(nearPoint, direction);
             return result;
         }

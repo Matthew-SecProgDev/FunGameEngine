@@ -140,9 +140,6 @@ namespace Fun.Engine.Graphics
 
             thickness = FunMath.Clamp(thickness, MinLineThickness, MaxLineThickness);
 
-            //thickness = MathHelper.Clamp(thickness, 2, 11);
-            //thickness++;
-
             if (_camera != null)
             {
                 thickness *= _camera.Z / _camera.BaseZ;
@@ -155,7 +152,7 @@ namespace Fun.Engine.Graphics
             e1 *= halfThickness;
 
             var e2 = -e1;
-            var n1 = new Vector2(-e1.Y, e1.X);  //it must be checked because of -e1.Y
+            var n1 = new Vector2(-e1.Y, e1.X);
             var n2 = -n1;
 
             var q1 = a + n1 + e2;
@@ -189,9 +186,6 @@ namespace Fun.Engine.Graphics
 
             thickness = FunMath.Clamp(thickness, MinLineThickness, MaxLineThickness);
 
-            //thickness = MathHelper.Clamp(thickness, 2, 11);
-            //thickness++;
-
             if (_camera != null)
             {
                 thickness *= _camera.Z / _camera.BaseZ;
@@ -199,7 +193,6 @@ namespace Fun.Engine.Graphics
 
             var halfThickness = thickness / 2f;
 
-            // Creating edges
             var e1X = bX - aX;
             var e1Y = bY - aY;
 
@@ -211,13 +204,12 @@ namespace Fun.Engine.Graphics
             var e2X = -e1X;
             var e2Y = -e1Y;
 
-            var n1X = -e1Y; //it must be checked because of -e1Y
+            var n1X = -e1Y;
             var n1Y = e1X;
 
             var n2X = -n1X;
             var n2Y = -n1Y;
 
-            // Creating x and y of quadrilaterals
             var q1X = aX + n1X + e2X;
             var q1Y = aY + n1Y + e2Y;
 
@@ -333,13 +325,6 @@ namespace Fun.Engine.Graphics
                 index++;
             }
 
-            //for (var i = 0; i < shapeTriangleCount; i++)
-            //{
-            //    _indices[_indexCount++] = 0 + _vertexCount;
-            //    _indices[_indexCount++] = i + 1 + _vertexCount;
-            //    _indices[_indexCount++] = i + 2 + _vertexCount;
-            //}
-
             var rotation = Microsoft.Xna.Framework.MathHelper.TwoPi / points;
 
             var sin = MathF.Sin(rotation);
@@ -431,7 +416,6 @@ namespace Fun.Engine.Graphics
                 throw new ArgumentOutOfRangeException(nameof(triangleIndices));
             }
 #endif
-            //maybe we should make transparency by another way, for increase performance and simplification
             transparency = FunMath.Clamp(transparency, 0.1f, 1f);
 
             this.EnsureStarted();
@@ -505,13 +489,8 @@ namespace Fun.Engine.Graphics
             {
                 if (disposing)
                 {
-                    // Dispose managed state (managed objects)
                     _effect.Dispose();
                 }
-
-                // TODO: Override finalizer (destructor) only if there is code to free unmanaged resources
-                // Free unmanaged resources (unmanaged objects)
-                // Set large fields to null
 
                 _isDisposed = true;
             }

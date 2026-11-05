@@ -20,20 +20,17 @@ namespace Fun.Engine.UI.Sliders
         public Rectangle HandleBounds
         {
             get => _handleBounds;
-            protected set => _handleBounds = value;    //maybe this property should be private, maybe not and init
+            protected set => _handleBounds = value;
         }
 
         public float Value
         {
-            // we later can add extra feature for setting value from out via textfield inside Slider
             get => _currentValue;
             private set => _currentValue = FunMath.Clamp(value, _minValue, _maxValue);
         }
 
         public Slider(Vector2 size, Models.SliderOption option, Vector2 position) : base(size, position)
         {
-            // Maybe user should set a value for example 20 from 100 and them we should set position of HandleBounds and the value
-
             Texture = option.BackgroundTexture;
             _handleTexture = option.HandleTexture;
             _fillTexture = option.FillTexture;
@@ -54,14 +51,11 @@ namespace Fun.Engine.UI.Sliders
         public override void Update(GameTime gameTime)
         {
             var mouse = Input.Mouse.Instance;
-            //var mousePosition = inputManager.GetMousePosition();
             var mousePosition = mouse.WorldPosition;
-            //if (inputManager.IsLeftMouseDown() && SliderBounds.Contains(mousePosition))
             if (mouse.IsLeftButtonDown() && SliderBounds.Contains(mousePosition))
             {
                 _isDragging = true;
             }
-            //else if(inputManager.IsLeftMouseUp())
             else if(_isDragging && mouse.IsLeftButtonReleased())
             {
                 _isDragging = false;
@@ -86,11 +80,9 @@ namespace Fun.Engine.UI.Sliders
 
         private void UpdateSliderVisuals()
         {
-            // Update handle position based on the current value
             var percent = (_currentValue - _minValue) / (_maxValue - _minValue);
             _handleBounds.X = (int)(Position.X + percent * (SliderBounds.Width - HandleBounds.Width));
 
-            // Update fill width based on the current value
             _fillBounds.Width = (int)(_currentValue / _maxValue * SliderBounds.Width);
         }
     }

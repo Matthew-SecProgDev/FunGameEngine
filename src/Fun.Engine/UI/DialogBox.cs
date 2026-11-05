@@ -4,8 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Fun.Engine.UI
 {
-    // TODO: it must be refactored and inherited from BaseUIObject
-    public class DialogBox_Button : UIElement  // Simplified version for the example
+    public class DialogBox_Button : UIElement
     {
         private Action onClick;
         private string text;
@@ -27,9 +26,8 @@ namespace Fun.Engine.UI
             }
         }
 
-        public override void Draw(SpriteBatch spriteBatch)//Sprites sprites
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            // Draw button background and text
             spriteBatch.DrawString(font, text, Position, Color.White);
         }
 
@@ -37,7 +35,7 @@ namespace Fun.Engine.UI
         {
             // Check if the mouse is over the button
             // This method needs proper implementation
-            return true;  // Simplified for example purposes
+            return true;
         }
     }
 
@@ -48,7 +46,7 @@ namespace Fun.Engine.UI
         private string message;
         private Vector2 messagePosition;
         private Rectangle backgroundRectangle;
-        private Action<bool> onResponse;  // Callback for handling responses
+        private Action<bool> onResponse;
 
         private DialogBox_Button yesButton;
         private DialogBox_Button noButton;
@@ -61,7 +59,7 @@ namespace Fun.Engine.UI
             this.message = message;
             this.onResponse = responseAction;
 
-            this.backgroundRectangle = new Rectangle((int)position.X, (int)position.Y, 200, 100); // Assuming fixed size for simplicity
+            this.backgroundRectangle = new Rectangle((int)position.X, (int)position.Y, 200, 100);
             this.messagePosition = new Vector2(position.X + 10, position.Y + 10);
 
             yesButton = new DialogBox_Button(new Vector2(position.X + 30, position.Y + 60), "Yes", font, () => onResponse(true));
@@ -74,7 +72,7 @@ namespace Fun.Engine.UI
             noButton.Update(gameTime);
         }
 
-        public override void Draw(SpriteBatch spriteBatch)//Sprites sprites
+        public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(backgroundTexture, backgroundRectangle, Color.White);
             spriteBatch.DrawString(font, message, messagePosition, Color.Black);

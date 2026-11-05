@@ -2,23 +2,36 @@
 {
     public class EventBus : Interfaces.IEventBus
     {
-        private readonly Dictionary<Type, List<Action<BaseGameStateEvent>>> _handlers = [];
+        //private readonly Dictionary<Type, List<Action<BaseGameStateEvent>>> _handlers = [];
+        private readonly Dictionary<Type, List<Delegate>> _handlers = new();
 
         public void Subscribe<T>(Action<T> handler) where T : BaseGameStateEvent
         {
+            ArgumentNullException.ThrowIfNull(handler);
+
             var eventType = typeof(T);
-            if (!_handlers.ContainsKey(eventType))
+
+            if (!_handlers.TryGetValue(eventType, out var handlers))
             {
-                _handlers[eventType] = [];
+                handlers = new List<Delegate>();
+                _handlers.Add(eventType, handlers);
             }
-            _handlers[eventType].Add(e => handler((T)e));
+
+            handlers.Add(handler);
         }
 
         public void Unsubscribe<T>(Action<T> handler) where T : BaseGameStateEvent
         {
-            if (_handlers.TryGetValue(typeof(T), out var handlers))
+            if (!_handlers.TryGetValue(typeof(T), out var handlers))
             {
-                handlers.Remove(e => handler((T)e));
+                return;
+            }
+
+            handlers.Remove(handler);
+
+            if (handlers.Count == 0)
+            {
+                _handlers.Remove(typeof(T));
             }
         }
 
@@ -31,7 +44,7 @@
 
             foreach (var handler in handlers)
             {
-                handler(@event);
+                ((Action<T>)handler)(@event);
             }
         }
     }

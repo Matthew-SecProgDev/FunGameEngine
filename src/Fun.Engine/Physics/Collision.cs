@@ -21,7 +21,6 @@ namespace Fun.Engine.Physics
             normal = Vector2.Zero;
 
             var difference = b.Center - a.Center;
-            //var distanceSquared = difference.LengthSquared();
             var distanceSquared = FunMath.LengthSquared(difference);
             var combinedRadii = a.Radius + b.Radius;
             var combinedRadiiSquared = combinedRadii * combinedRadii;

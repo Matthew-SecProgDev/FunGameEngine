@@ -7,16 +7,11 @@ using PCRE;
 
 namespace Fun.SimpleGame.Configurations.Enemy
 {
-    public class EnemyConfigParser //: IEnemyConfigParser
+    public class EnemyConfigParser
     {
         private static readonly PcreRegex BuildTimeRegex = new("^(?:GT:(?<value>\\d+))$", PcreOptions.Compiled);
 
         private static readonly PcreRegex PositionRegex = new("^(?:Value:(?<value>-?\\d+))$", PcreOptions.Compiled);
-
-        //public EnemyConfigParser(IOptions<>)
-        //{
-            
-        //}
 
         public static Models.EnemyConfig Parse(string fileName)
         {

@@ -43,8 +43,6 @@ namespace Fun.Engine.Geometry
             result.M11 = CosScaleX;
             result.M12 = SinScaleY;
             result.M21 = -SinScaleX;
-            //result.M12 = -SinScaleY;//check it
-            //result.M21 = SinScaleX;//check it
             result.M22 = CosScaleY;
             result.M41 = PosX;
             result.M42 = PosY;

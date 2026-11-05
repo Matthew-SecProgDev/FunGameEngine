@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Fun.SimpleGame.Particles.Simple
 {
-    // refactor it
     public class CircularSimpleEmitter : Emitter
     {
         private const int NbParticles = 2;

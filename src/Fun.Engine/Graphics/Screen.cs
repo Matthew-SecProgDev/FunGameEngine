@@ -52,7 +52,6 @@ namespace Fun.Engine.Graphics
             }
 #endif
 
-            // Set the render target
             _game.GraphicsDevice.SetRenderTarget(_renderTarget);
             _game.GraphicsDevice.Clear(Color.CornflowerBlue);
 
@@ -69,7 +68,6 @@ namespace Fun.Engine.Graphics
             }
 #endif
 
-            // Reset the render target to the back buffer
             _game.GraphicsDevice.SetRenderTarget(null);
 
             _isSet = false;
@@ -133,13 +131,8 @@ namespace Fun.Engine.Graphics
             {
                 if (disposing)
                 {
-                    // Dispose managed state (managed objects)
                     _renderTarget.Dispose();
                 }
-
-                // TODO: Override finalizer (destructor) only if there is code to free unmanaged resources
-                // Free unmanaged resources (unmanaged objects)
-                // Set large fields to null
 
                 _isDisposed = true;
             }

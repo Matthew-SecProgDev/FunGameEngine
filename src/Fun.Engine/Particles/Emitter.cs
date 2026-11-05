@@ -85,7 +85,6 @@ namespace Fun.Engine.Particles
 
         private void EmitParticles()
         {
-            // make sure we're not at max particles
             if (_activeParticles.Count >= _maxNbParticle)
             {
                 return;
@@ -99,7 +98,6 @@ namespace Fun.Engine.Particles
 
         private void ReuseOrCreateParticles(int neededParticles)
         {
-            // reuse inactive particles first before creating new ones
             var nbToReuse = Math.Min(_inactiveParticles.Count, neededParticles);
             var nbToCreate = neededParticles - nbToReuse;
 

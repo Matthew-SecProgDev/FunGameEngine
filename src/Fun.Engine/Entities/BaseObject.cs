@@ -54,11 +54,6 @@ namespace Fun.Engine.Entities
         public void Deactivate()
         {
             IsActive = false;
-
-            // Additional code can be added here if needed, such as:
-            // - Trigger a fade out animation
-            // - Log the event
-            // - Notify other components or systems of the change
         }
 
         /// <summary>

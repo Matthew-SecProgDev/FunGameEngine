@@ -134,14 +134,13 @@ namespace Fun.SimpleGame.Entities
         {
             var totalTime = gameTime.GetTotalSeconds();
 
-            // If currently attacking and the idle threshold has passed, reset to idle state
             if (totalTime > _idleThreshold)
             {
                 SetNextIdleThreshold(totalTime, 0.49f);
                 _currentAnim?.Reset();
                 UpdateCurrentAnimation(EnemyState.Idle);
             }
-            else if (totalTime - _timeLastAttack > _attackDuration)// Check if the attack duration has elapsed
+            else if (totalTime - _timeLastAttack > _attackDuration)
             {
                 _isAttacking = false;
             }

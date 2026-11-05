@@ -57,17 +57,13 @@ namespace Fun.SimpleGame.UI.HUDs
             _font = resourceManager.LoadFont("Fonts/font");
             _penColor = Color.White;
 
-            //Initialize the frame
             InitializeFrame(out _frameVertices, out _frameIndices, out _frameTransform, out _frameColor);
 
-            //Initialize elements of the frame
             InitializeFrameElements(addObjectHandler, resourceManager);
 
-            //Initialize player's health-bar
             camera.GetExtents(out float width, out float height);
             InitializePlayerHealthBar(width, height, addObjectHandler, resourceManager, eventBus);
 
-            //Initialize enemy's health-bar
             InitializeEnemyHealthBar(width, height, addObjectHandler, resourceManager, eventBus);
         }
 
@@ -90,7 +86,6 @@ namespace Fun.SimpleGame.UI.HUDs
             _shapes.DrawFilledPolygon(_frameVertices, _frameIndices, _frameTransform, _frameColor, 0.6f);
             _shapes.End();
 
-            //var j = 0;
             const float scale = 1.3f;
             const float width = 40f;
             const float height = 40f;

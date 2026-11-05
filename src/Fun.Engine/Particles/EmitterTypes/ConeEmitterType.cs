@@ -20,9 +20,6 @@ namespace Fun.Engine.Particles.EmitterTypes
 
         public Vector2 GetParticlePosition(Vector2 emitterPosition)
         {
-            // return the same position for this type of emitter, but otherwise we could tweak this to start particles a bit further
-            // away from the center of the cone.
-
             return new Vector2(emitterPosition.X, emitterPosition.Y);
         }
     }

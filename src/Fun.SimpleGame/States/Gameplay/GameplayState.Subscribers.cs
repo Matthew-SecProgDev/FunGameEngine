@@ -4,9 +4,9 @@
     {
         private void InitializePlayerEventSubscribers()
         {
-            _eventBus.Subscribe<GameplayEvents.PlayerMoved>(NotifyEvent);//this must be done just for enemies
+            _eventBus.Subscribe<GameplayEvents.PlayerMoved>(NotifyEvent);
 
-            _eventBus.Subscribe<GameplayEvents.PlayerDirectionChanged>(NotifyEvent);//this must be done just for enemies
+            _eventBus.Subscribe<GameplayEvents.PlayerDirectionChanged>(NotifyEvent);
 
             _eventBus.Subscribe<GameplayEvents.ScreenShake>(_ => ScreenShake());
         }

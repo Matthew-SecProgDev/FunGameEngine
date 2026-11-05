@@ -46,7 +46,6 @@
 
         private static bool DetectCollision(TPassiveObject passiveObject, TActiveObject activeObject)
         {
-            // currently, this code is works based on x-axis of ScreenPosition, but it should be refactored
             var passiveObjectSPX = passiveObject.ScreenPosition.X;
             var activeObjectSPX = activeObject.ScreenPosition.X;
             foreach (var collisionBox2D in passiveObject.CollisionBoxes)

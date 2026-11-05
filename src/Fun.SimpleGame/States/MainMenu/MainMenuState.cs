@@ -10,8 +10,6 @@ using Ex = Fun.SimpleGame.UI.UIExtensions;
 
 namespace Fun.SimpleGame.States.MainMenu
 {
-    // TODO: it's not completed, I have to refactor it
-
     enum MainMenuScreenState
     {
         Main = 0,
@@ -25,11 +23,7 @@ namespace Fun.SimpleGame.States.MainMenu
 
     public class MainMenuState : BaseGameState
     {
-        // if I have a handler for each component and use this for communicate with other components,
-        // for example without create a new component and connect it to another
         private List<BaseUIObject> _elements = null!;
-
-        //private MainMenuScreenState _mainMenuScreenState = MainMenuScreenState.Main;
 
         public MainMenuState() : base(new MainMenuInputMapper())
         {
@@ -42,7 +36,6 @@ namespace Fun.SimpleGame.States.MainMenu
             var texture = ResourceManager.LoadTexture("UIElements/Button");
             var newGameTexture = ResourceManager.LoadTexture("UIElements/NewGame");
             var exitTexture = ResourceManager.LoadTexture("UIElements/Exit");
-            //var chooseLevelTexture = ResourceManager.LoadTexture("UIElements/ChooseLevel");
             var optionsTexture = ResourceManager.LoadTexture("UIElements/Options");
 
             var trackTexture = ResourceManager.LoadTexture("UIElements/Slider/Track");
@@ -68,12 +61,6 @@ namespace Fun.SimpleGame.States.MainMenu
 
             _elements = new List<BaseUIObject>
             {
-                //Ex.CreateButton(size, optionsTexture, null, penColor, font, Options_Clicked, new Vector2(400, 220)),
-                //Ex.CreateButton(size, optionsTexture, "Join Online Game", penColor, font, JoinOnline_Clicked, new Vector2(400, 300)),
-
-                //Ex.CreateToggleSwitch(new Vector2(150, 70), onSwitchTexture, offSwitchTexture, DefaultState.OffSwitch,
-                //    new Vector2(400, 100)),
-
                 closeableTooltip,
 
                 simpleTooltip,
@@ -111,7 +98,6 @@ namespace Fun.SimpleGame.States.MainMenu
             {
                 if (cmd is MainMenuInputCommand.MenuExit)
                 {
-                    //SwitchState(new GameplayState());
                     NotifyEvent(new BaseGameStateEvent.GameQuit());
                 }
             });

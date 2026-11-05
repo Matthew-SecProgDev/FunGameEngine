@@ -7,9 +7,6 @@ namespace Fun.Engine.UI.TextFields
 {
     public sealed class TextField : BaseUIObject
     {
-        // we can add extra configuration to set limitation on count of incoming or
-        // make limit on kind of value, for example Textfield takes only integer values or
-        // take custom validation from side of developer
         private const string CursorCharacter = "|";
         private readonly SpriteFont _font;
         private readonly Color _penColor;
@@ -38,7 +35,6 @@ namespace Fun.Engine.UI.TextFields
 
             var mousePressed = mouse.IsLeftButtonPressed();
 
-            //var isHovering = Bounds.Contains(inputManager.GetMousePosition());
             var isHovering = Bounds.Contains(mouse.WorldPosition);
             if (mousePressed && isHovering)
             {
@@ -51,7 +47,6 @@ namespace Fun.Engine.UI.TextFields
 
             if (_hasFocus)
             {
-                // Handle text input
                 var pressedKeys = keyboard.GetPressedKeys();
                 foreach (var key in pressedKeys)
                 {
@@ -69,7 +64,6 @@ namespace Fun.Engine.UI.TextFields
                         }
                         else if (key == Keys.Back && _cursorPosition > 0 && _cursorPosition <= length)
                         {
-                            // if text is selected so condition is different
                             _textBuilder.Remove(_cursorPosition - 1, 1);
                             _cursorPosition--;
                         }
@@ -125,7 +119,6 @@ namespace Fun.Engine.UI.TextFields
                     }
                 }
 
-                // Cursor blink logic
                 _cursorTimer += gameTime.GetElapsedSeconds();
                 if (_cursorTimer >= 0.5)
                 {

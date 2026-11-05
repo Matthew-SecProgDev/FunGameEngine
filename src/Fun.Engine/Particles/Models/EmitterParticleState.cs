@@ -5,15 +5,9 @@ namespace Fun.Engine.Particles.Models
 {
     public abstract class EmitterParticleState
     {
-        // how long a particle can live
         protected abstract int MinLifespan { get; }
         protected abstract int MaxLifespan { get; }
 
-        // defines how the particles will move. Velocity and its deviation define the particle's initial velocity
-        // then each update, we
-        //  - increase velocity by acceleration
-        //  - increase direction by gravity
-        //  - multiply direction by velocity
         protected abstract float Velocity { get; }
         protected abstract float VelocityDeviation { get; }
         public abstract float Acceleration { get; }

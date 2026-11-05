@@ -21,7 +21,7 @@ namespace Fun.SimpleGame.Managers
 
         void ApplyShield(PlayerSprite player);
 
-        IEnumerable<KeyValuePair<AssetType, int>> GetAssets();//Retrieve
+        IEnumerable<KeyValuePair<AssetType, int>> GetAssets();
     }
 
     public class InventoryManager : IInventoryManager
@@ -107,10 +107,6 @@ namespace Fun.SimpleGame.Managers
                     _collectedObjects[AssetType.Yellow] = value1;
                     _collectedObjects[AssetType.Green] = value2;
                 }
-                //else
-                //{
-                //    //return a message contains you don't have enough assets
-                //}
             }
         }
 

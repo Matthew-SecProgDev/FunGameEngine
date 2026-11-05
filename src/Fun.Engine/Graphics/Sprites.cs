@@ -26,8 +26,8 @@ namespace Fun.Engine.Graphics
                 FogEnabled = false,
                 LightingEnabled = false,
                 VertexColorEnabled = true,
-                PreferPerPixelLighting = false,//TODO: What does it do? adjusting false is correct?
-                Texture = null,//TODO: What does it do? adjusting null is correct?
+                PreferPerPixelLighting = false,
+                Texture = null,
                 TextureEnabled = true,
                 World = Matrix.Identity,
                 Projection = Matrix.Identity,
@@ -63,8 +63,6 @@ namespace Fun.Engine.Graphics
 
                 _effect.Projection = camera.Projection;
                 _effect.View = camera.View * Matrix.CreateTranslation(camera._screenShake.ShakeOffset.X, camera._screenShake.ShakeOffset.Y, 0f);
-                //_effect.View = camera.View;
-                //* Matrix.CreateTranslation(screenShake.ShakeOffset.X, screenShake.ShakeOffset.Y, 0f);
 
                 // TODO: Do I really want anisotropic filtering whenever the camera is farther away then the base Z.
                 if (camera.Z > camera.BaseZ)
@@ -72,18 +70,6 @@ namespace Fun.Engine.Graphics
                     sampler = SamplerState.AnisotropicClamp;
                 }
             }
-
-            //var blend = new BlendState();
-            //blend.AlphaSourceBlend = Blend.Zero;
-            //blend.AlphaDestinationBlend = Blend.InverseSourceColor;
-            //blend.ColorSourceBlend = Blend.Zero;
-            //blend.ColorDestinationBlend = Blend.InverseSourceColor;
-
-            //_sprites.Begin(
-            //    blendState: blend,
-            //    samplerState: sampler,
-            //    rasterizerState: RasterizerState.CullNone,
-            //    effect: _effect);
 
             _sprites.Begin(
                 blendState: BlendState.AlphaBlend,
@@ -188,7 +174,6 @@ namespace Fun.Engine.Graphics
         }
 
         public void Draw(Texture2D texture,
-            //[NotNull]Texture2D? texture,
             Vector2 position,
             Rectangle? sourceRectangle,
             Color color,
@@ -198,10 +183,6 @@ namespace Fun.Engine.Graphics
             SpriteEffects effect,
             float layerDepth)
         {
-//#if DEBUG
-//            ArgumentNullException.ThrowIfNull(texture);
-//#endif
-
             _sprites.Draw(texture,
                 position,
                 sourceRectangle,
@@ -355,14 +336,9 @@ namespace Fun.Engine.Graphics
             {
                 if (disposing)
                 {
-                    // Dispose managed state (managed objects)
                     _effect.Dispose();
                     _sprites.Dispose();
                 }
-
-                // TODO: Override finalizer (destructor) only if there is code to free unmanaged resources
-                // Free unmanaged resources (unmanaged objects)
-                // Set large fields to null
 
                 _isDisposed = true;
             }

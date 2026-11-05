@@ -56,19 +56,9 @@ namespace Fun.Engine
                 throw new Exception("");
             }
 
-            //Util.SetRelateBackBufferSize(_graphics, 0.85f)
             var displayMode = GraphicsDevice.DisplayMode;
             _graphics.PreferredBackBufferWidth = (int)(displayMode.Width * 0.85f);
             _graphics.PreferredBackBufferHeight = (int)(displayMode.Height * 0.85f);
-
-            //_graphics.
-            //GraphicsDevice.DepthStencilState = new DepthStencilState
-            //{
-            //    DepthBufferEnable = true
-            //};
-
-            //GraphicsDevice.BlendState = BlendState.Opaque;
-            //GraphicsDevice.DepthStencilState = DepthStencilState.Default;
 
             _graphics.GraphicsDevice.DepthStencilState = new DepthStencilState
             {
@@ -82,9 +72,6 @@ namespace Fun.Engine
             _shapes = new Graphics.Shapes(this);
             _screenShake = new Graphics.ScreenShake();
             _camera = new Graphics.Camera(_screen, _screenShake);
-            //_camera.Zoom = 5;
-
-            
 
             base.Initialize();
         }
@@ -129,21 +116,13 @@ namespace Fun.Engine
         /// <param name="gameTime"></param>
         protected override void Draw(GameTime gameTime)
         {
-            // Render to the Render Target
             _screen.Set();
-            //_shapes.Begin(_camera);//must be put after _sprites
-            _sprites.Begin(_camera, true); //maybe false
+            _sprites.Begin(_camera, true);
             
             _currentGameState.Render(_sprites);
 
             _sprites.End();
-            //_shapes.End();//must be put after _sprites
-
-            //_shapes.Begin(_camera);
-            //_shapes.DrawLine(new Vector2(10, 10), new Vector2(100, 100), 5f, Color.Red);
-            //_shapes.End();
-
-            // Now render the scaled content
+            
             _screen.UnSet();
             _screen.Present(_sprites);
 
@@ -160,15 +139,10 @@ namespace Fun.Engine
             _currentGameState.OnStateSwitched -= this.CurrentGameState_OnStateSwitched;
             _currentGameState.OnEventNotification -= this.CurrentGameState_OnEventNotification;
 
-            //is it correct that any time call UnloadContent?
-            //I think it's correct just when a level is done and the user want to move to another level,
-            //and it's not call for where that probably run many times for example for run menu states and so on so
-            //all resources for menu states and other states like that must be remained in ResourceManager 
             _currentGameState.UnloadContent();
 
             _currentGameState = gameState;
 
-            //refactor it
             var viewport = _graphics.GraphicsDevice.Viewport;
             _currentGameState.Initialize(Content, _camera, _screen, _shapes, viewport.Width, viewport.Height);
 

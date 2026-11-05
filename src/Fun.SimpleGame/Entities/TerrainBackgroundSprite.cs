@@ -56,7 +56,6 @@ namespace Fun.SimpleGame.Entities
 
         public override void Render(Engine.Graphics.Sprites sprites)
         {
-            // I have to fix problem
             var viewport = sprites.GraphicsDevice.Viewport;
 
             if (Position.X + viewport.Width * _textureIndex < 1)
@@ -81,12 +80,12 @@ namespace Fun.SimpleGame.Entities
         private void HandleMoveRight(Vector2 characterPosition, float elapsedTime)
         {
             var positionX = KeepXWithinBounds(Position.X - ScrollingSpeed * elapsedTime);
-            PositionX = positionX; //refactor it, it should be handled by camera
-            _eventBus.Publish(new GameplayEvents.ScreenPositionChanged(new Vector2(Position.X, 0f))); //refactor it
+            PositionX = positionX;
+            _eventBus.Publish(new GameplayEvents.ScreenPositionChanged(new Vector2(Position.X, 0f)));
             _eventBus.Publish(new GameplayEvents.PlayerMoveRight
             {
-                PosX = KeepXWithinBounds(characterPosition.X), //refactor it, it should be handled by camera
-                PosY = KeepYWithinBounds(characterPosition.Y) //refactor it, it should be handled by camera
+                PosX = KeepXWithinBounds(characterPosition.X),
+                PosY = KeepYWithinBounds(characterPosition.Y)
             });
         }
 
@@ -94,13 +93,13 @@ namespace Fun.SimpleGame.Entities
         {
             var positionX =
                 KeepXWithinBounds(Position.X +
-                                  ScrollingSpeed * elapsedTime); //refactor it, it should be handled by camera
+                                  ScrollingSpeed * elapsedTime);
             PositionX = positionX;
-            _eventBus.Publish(new GameplayEvents.ScreenPositionChanged(new Vector2(Position.X, 0f))); //refactor it
+            _eventBus.Publish(new GameplayEvents.ScreenPositionChanged(new Vector2(Position.X, 0f)));
             _eventBus.Publish(new GameplayEvents.PlayerMoveLeft
             {
-                PosX = KeepXWithinBounds(characterPosition.X), //refactor it, it should be handled by camera
-                PosY = KeepYWithinBounds(characterPosition.Y) //refactor it, it should be handled by camera
+                PosX = KeepXWithinBounds(characterPosition.X),
+                PosY = KeepYWithinBounds(characterPosition.Y)
             });
         }
 
@@ -113,27 +112,27 @@ namespace Fun.SimpleGame.Entities
 
             if (CheckValidateMoveOn(location.CurrentPosition, location.DestinationPosition.Value, location.Direction))
             {
-                // probably I have to send an event to the server or anti-cheat system
+                // probably here there is a mechanism to send events to a server or anti-cheat system
             }
 
             if (location.Direction == DirectionType.Up)
             {
                 _eventBus.Publish(new GameplayEvents.PlayerMoveUp
                 {
-                    PosX = KeepXWithinBounds(location.DestinationPosition.Value.X),//refactor it, it should be handled by camera
-                    PosY = KeepYWithinBounds(location.DestinationPosition.Value.Y)//refactor it, it should be handled by camera
+                    PosX = KeepXWithinBounds(location.DestinationPosition.Value.X),
+                    PosY = KeepYWithinBounds(location.DestinationPosition.Value.Y)
                 });
             }
             else
             {
                 _eventBus.Publish(new GameplayEvents.PlayerMoveDown
                 {
-                    PosX = KeepXWithinBounds(location.DestinationPosition.Value.X),//refactor it, it should be handled by camera
-                    PosY = KeepYWithinBounds(location.DestinationPosition.Value.Y)//refactor it, it should be handled by camera
+                    PosX = KeepXWithinBounds(location.DestinationPosition.Value.X),
+                    PosY = KeepYWithinBounds(location.DestinationPosition.Value.Y)
                 });
             }
 
-            _eventBus.Publish(new GameplayEvents.ScreenPositionChanged(new Vector2(Position.X, 0f))); //refactor it
+            _eventBus.Publish(new GameplayEvents.ScreenPositionChanged(new Vector2(Position.X, 0f)));
         }
 
         private static float KeepXWithinBounds(float x)

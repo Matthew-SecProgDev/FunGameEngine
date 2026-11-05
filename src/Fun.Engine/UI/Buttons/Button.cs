@@ -44,8 +44,6 @@ namespace Fun.Engine.UI.Buttons
             var mousePressed = mouse.IsLeftButtonPressed();
             var mouseReleased = mouse.IsLeftButtonReleased();
 
-            // Check if the mouse is over the button
-            //_isHovering = Bounds.Contains(inputManager.GetMousePosition());
             _isHovering = _bounds.Contains(mouse.WorldPosition);
             if (_isHovering)
             {
@@ -96,9 +94,6 @@ namespace Fun.Engine.UI.Buttons
 
         public void UpdateButtonPosition(int x, int y)
         {
-            //TODO: Test it
-            //TODO?? since we have PositionX & PositionY for changing values,
-            //TODO?? so I must check later, do I need this function in the future or not 
             _bounds.X = x;
             _bounds.Y = y;
         }

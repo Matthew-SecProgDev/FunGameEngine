@@ -29,7 +29,7 @@ namespace Fun.Engine.Input
                 handler(state);
             }
 
-            // Currently, it's assumed that only 1 GamePad is used
+            // Currently, I assume that only 1 GamePad is used
             var gamePadState = GamePad.GetState(0);
             foreach (var state in inputMapper.GetGamePadState(gamePadState))
             {

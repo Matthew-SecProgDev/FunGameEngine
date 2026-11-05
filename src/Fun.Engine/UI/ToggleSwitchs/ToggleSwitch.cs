@@ -24,7 +24,6 @@ namespace Fun.Engine.UI.ToggleSwitchs
         {
             var mouse = Input.Mouse.Instance;
             var mousePressed = mouse.IsLeftButtonPressed();
-            //if (Bounds.Contains(inputManager.GetMousePosition()) && mousePressed)
             if (this.Bounds.Contains(mouse.WorldPosition) && mousePressed)
             {
                 this.IsOn = !IsOn;

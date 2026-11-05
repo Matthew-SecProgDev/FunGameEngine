@@ -21,10 +21,6 @@ namespace Fun.SimpleGame.Configurations.Game
     {
         public override void Load()
         {
-            //var jsonNode = JsonObject.Parse(json);
-            //var jsonObject = JObject.Parse(_json);
-
-            // utf8 stream
             var jsonNode = JsonObject.Parse(json);
 
             Data = ParseJson(jsonNode);

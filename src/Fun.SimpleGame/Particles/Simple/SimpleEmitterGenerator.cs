@@ -7,8 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Fun.SimpleGame.Particles.Simple
 {
-    // it must be refactored
-
     public enum ParticleGeneratorStatus
     {
         NotInitialized = 0,
@@ -18,7 +16,6 @@ namespace Fun.SimpleGame.Particles.Simple
         Completed = 2
     }
 
-    // it must be refactored
     public class SimpleEmitterGenerator
     {
         private const string BasePath = "Textures/Effects/Creation";
