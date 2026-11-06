@@ -18,5 +18,7 @@ namespace Fun.SimpleGame.Managers.Interfaces
         void Initialize(Vector2 playerPosition);
 
         void Update(GameTime gameTime);
+
+        void UnsubscribeEvents();
     }
 }

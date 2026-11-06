@@ -30,6 +30,8 @@ namespace Fun.SimpleGame.States.Gameplay
         private readonly IInventoryManager _inventoryManager;
         private HeadsUpDisplay _headsUpDisplay;
 
+        private TerrainBackgroundSprite _terrainBackground;
+
         public GameplayState() : base(new GameplayInputMapper())
         {
             _backgroundMusicManager = new BackgroundMusicManager();
@@ -154,6 +156,13 @@ namespace Fun.SimpleGame.States.Gameplay
             {
                 _enemyManager.AddObjectHandler -= AddObject;
                 _enemyManager.RemoveObjectHandler -= RemoveObject;
+
+                _enemyManager.UnsubscribeEvents();
+            }
+
+            if (_terrainBackground != null)
+            {
+                _eventBus.Unsubscribe<GameplayEvents.GoingToLocation>(_terrainBackground.HandleMoving);
             }
 
             base.UnloadContent();
@@ -161,14 +170,14 @@ namespace Fun.SimpleGame.States.Gameplay
 
         private void InitializeTerrainBackground()
         {
-            var terrainBackground = new TerrainBackgroundSprite(ResourceManager, _eventBus, Camera)
+            _terrainBackground = new TerrainBackgroundSprite(ResourceManager, _eventBus, Camera)
             {
                 ZIndex = -100
             };
 
-            _eventBus.Subscribe<GameplayEvents.GoingToLocation>(terrainBackground.HandleMoving);
+            _eventBus.Subscribe<GameplayEvents.GoingToLocation>(_terrainBackground.HandleMoving);
 
-            AddObject(terrainBackground);
+            AddObject(_terrainBackground);
         }
 
         private void InitializePlayer()

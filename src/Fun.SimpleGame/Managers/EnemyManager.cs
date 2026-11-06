@@ -45,14 +45,8 @@ namespace Fun.SimpleGame.Managers
 
             CreateEnemiesImmediately();
 
-            _eventBus.Subscribe<GameplayEvents.PlayerMoved>(playerMovedHandler =>
-            {
-                _playerPosition = playerMovedHandler.Position;
-            });
-            _eventBus.Subscribe<GameplayEvents.ScreenPositionChanged>(screenChangedHandler =>
-            {
-                _screenPosition = screenChangedHandler.Position;
-            });
+            _eventBus.Subscribe<GameplayEvents.PlayerMoved>(HandlePlayerMoved);
+            _eventBus.Subscribe<GameplayEvents.ScreenPositionChanged>(HandleScreenPositionChanged);
         }
 
         public void Update(GameTime gameTime)
@@ -62,6 +56,12 @@ namespace Fun.SimpleGame.Managers
             UpdateEnemies(gameTime);
 
             CleanDestroyed();
+        }
+
+        public void UnsubscribeEvents()
+        {
+            _eventBus.Unsubscribe<GameplayEvents.PlayerMoved>(HandlePlayerMoved);
+            _eventBus.Unsubscribe<GameplayEvents.ScreenPositionChanged>(HandleScreenPositionChanged);
         }
 
         private void CreateEnemiesImmediately()
@@ -283,6 +283,16 @@ namespace Fun.SimpleGame.Managers
         private void HandleRemoveObject(BaseObject baseObject)
         {
             RemoveObjectHandler?.Invoke(baseObject);
+        }
+
+        private void HandlePlayerMoved(GameplayEvents.PlayerMoved e)
+        {
+            _playerPosition = e.Position;
+        }
+
+        private void HandleScreenPositionChanged(GameplayEvents.ScreenPositionChanged e)
+        {
+            _screenPosition = e.Position;
         }
     }
 }
