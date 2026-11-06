@@ -145,14 +145,14 @@ namespace Fun.SimpleGame.UI.HUDs
                         OnClick = () => _inventoryManager.IncreaseHealth(_player)
                     },
                     new Vector2(20f * 5 + x + size.X * 5, y)));
-            _elements.Add(AssetType.Shield,
+            /*_elements.Add(AssetType.Shield,
                 new Button(size,
                     new TexturedButtonOption
                     {
                         NormalTexture = resourceManager.LoadTexture("Textures/UI/PickUps/47"),
                         OnClick = () => _inventoryManager.ApplyShield(_player)
                     },
-                    new Vector2(20f * 6 + x + size.X * 6, y)));
+                    new Vector2(20f * 6 + x + size.X * 6, y)));*/
 
             foreach (var element in _elements.Values)
             {

@@ -32,6 +32,8 @@ namespace Fun.SimpleGame.States.Gameplay
 
         private TerrainBackgroundSprite _terrainBackground;
 
+        private readonly List<Collectible> _collectibles = new();
+
         public GameplayState() : base(new GameplayInputMapper())
         {
             _backgroundMusicManager = new BackgroundMusicManager();
@@ -167,6 +169,12 @@ namespace Fun.SimpleGame.States.Gameplay
 
             _backgroundMusicManager.Dispose();
 
+            foreach (var collectible in _collectibles)
+            {
+                collectible.RemoveObjectHandler -= RemoveObject;
+            }
+            _collectibles.Clear();
+
             base.UnloadContent();
         }
 
@@ -252,7 +260,10 @@ namespace Fun.SimpleGame.States.Gameplay
             foreach (var collectible in collectibles)
             {
                 collectible.AddCollisionBox(new CollisionBox2D(collectible.Position, collectible.Width, collectible.Height));
-                collectible.RemoveObjectHandler += RemoveObject;//it must be unsubscribed
+                collectible.RemoveObjectHandler += RemoveObject;
+
+                _collectibles.Add(collectible);
+
                 AddObject(collectible);
             }
 

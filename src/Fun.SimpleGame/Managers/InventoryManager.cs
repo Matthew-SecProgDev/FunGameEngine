@@ -19,7 +19,7 @@ namespace Fun.SimpleGame.Managers
 
         void IncreaseHealth(PlayerSprite player);
 
-        void ApplyShield(PlayerSprite player);
+        //void ApplyShield(PlayerSprite player);
 
         IEnumerable<KeyValuePair<AssetType, int>> GetAssets();
     }
@@ -110,23 +110,22 @@ namespace Fun.SimpleGame.Managers
             }
         }
 
-        public void ApplyShield(PlayerSprite player)
+        /*public void ApplyShield(PlayerSprite player)
         {
             //based on written rules
             lock (_locker)
             {
 
             }
-        }
+        }*/
 
         public IEnumerable<KeyValuePair<AssetType, int>> GetAssets()
         {
-            //return all collectible objects that are collected
             lock (_locker)
             {
+                var assets = _collectedObjects.ToArray();
                 HasChanges = false;
-
-                return _collectedObjects.AsEnumerable();
+                return assets;
             }
         }
 
