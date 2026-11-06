@@ -11,13 +11,15 @@ namespace Fun.Engine.States
     /// </summary>
     public abstract class BaseGameState
     {
+        private readonly List<Entities.BaseObject> _objects = [];
+
+        private ContentManager? _stateContentManager;
+
         protected bool IsDebugCollisionEnabled { get; set; } = false;
 
         protected bool _indestructible = false;
 
         protected bool IsFourViewsEnabled { get; set; } = false;
-
-        private readonly List<Entities.BaseObject> _objects = [];
 
         protected Input.InputManager InputManager { get; }
 
@@ -60,7 +62,19 @@ namespace Fun.Engine.States
             int viewportWidth,
             int viewportHeight)
         {
-            this.ResourceManager = new ResourceManager(contentManager);
+            if (_stateContentManager != null)
+            {
+                throw new InvalidOperationException("Game state is already initialized.");
+            }
+
+            var stateContent = new ContentManager(
+                contentManager.ServiceProvider,
+                contentManager.RootDirectory
+            );
+
+            _stateContentManager = stateContent;
+            this.ResourceManager = new ResourceManager(stateContent);
+
             this.Camera = camera;
             this.Screen = screen;
             this.Shapes = shapes;
@@ -134,7 +148,12 @@ namespace Fun.Engine.States
         /// </summary>
         public virtual void UnloadContent()
         {
-            this.ResourceManager?.Unload();
+            _stateContentManager?.Dispose();
+            _stateContentManager = null;
+
+            ResourceManager = null!;
+
+            _objects.Clear();
         }
 
         /// <summary>
