@@ -12,7 +12,7 @@ namespace Fun.Engine
         private readonly GraphicsDeviceManager _graphics;
         private readonly int _designedResolutionWidth;
         private readonly int _designedResolutionHeight;
-        private readonly IServiceProvider _serviceProvider;
+        //private readonly IServiceProvider _serviceProvider;
 
         private States.BaseGameState _currentGameState;
         private Graphics.Screen _screen;
@@ -20,10 +20,11 @@ namespace Fun.Engine
         private Graphics.Shapes _shapes;
         private Graphics.Camera _camera;
         private Graphics.ScreenShake _screenShake;
+        private bool _isGameStateLoaded;
 
         public MainGame(IOptions<Configurations.MainConfig> configuration, IServiceProvider serviceProvider)
         {
-            _serviceProvider = serviceProvider;
+            //_serviceProvider = serviceProvider;
             _graphics = new GraphicsDeviceManager(this)
             {
                 SynchronizeWithVerticalRetrace = true,
@@ -89,10 +90,19 @@ namespace Fun.Engine
         /// </summary>
         protected override void UnloadContent()
         {
-            _currentGameState.UnloadContent();
-            _shapes.Dispose();
-            _sprites.Dispose();
-            _screen.Dispose();
+            if (_isGameStateLoaded)
+            {
+                _currentGameState.OnStateSwitched -= CurrentGameState_OnStateSwitched;
+                _currentGameState.OnEventNotification -= CurrentGameState_OnEventNotification;
+
+                _currentGameState.UnloadContent();
+
+                _isGameStateLoaded = false;
+            }
+
+            _shapes?.Dispose();
+            _sprites?.Dispose();
+            _screen?.Dispose();
 
             base.UnloadContent();
         }
@@ -136,10 +146,22 @@ namespace Fun.Engine
         /// <param name="gameState"></param>
         private void SwitchGameState(States.BaseGameState gameState)
         {
-            _currentGameState.OnStateSwitched -= this.CurrentGameState_OnStateSwitched;
-            _currentGameState.OnEventNotification -= this.CurrentGameState_OnEventNotification;
+            ArgumentNullException.ThrowIfNull(gameState);
 
-            _currentGameState.UnloadContent();
+            if (_isGameStateLoaded)
+            {
+                if (ReferenceEquals(_currentGameState, gameState))
+                {
+                    return;
+                }
+
+                _currentGameState.OnStateSwitched -= CurrentGameState_OnStateSwitched;
+                _currentGameState.OnEventNotification -= CurrentGameState_OnEventNotification;
+
+                _currentGameState.UnloadContent();
+
+                _isGameStateLoaded = false;
+            }
 
             _currentGameState = gameState;
 
@@ -150,6 +172,8 @@ namespace Fun.Engine
 
             _currentGameState.OnStateSwitched += this.CurrentGameState_OnStateSwitched;
             _currentGameState.OnEventNotification += this.CurrentGameState_OnEventNotification;
+
+            _isGameStateLoaded = true;
         }
 
         /// <summary>

@@ -155,10 +155,7 @@ namespace Fun.SimpleGame.Entities
 
             _eventBus.Publish(new GameplayEvents.EnemyHit(this.Id, damageValue));
 
-            if (!_playerDetected)
-            {
-                _playerDetected = true;
-            }
+            _playerDetected = true;
 
             if (!IsAlive)
             {
@@ -192,16 +189,18 @@ namespace Fun.SimpleGame.Entities
                 {
                     var playerPosition = new Vector2(-1 * this.ScreenPosition.X + _playerPosition.X, _playerPosition.Y);
 
-                    if (!_playerDetected && _elapsedTime >= EnemySprite.FadeDuration &&
+                    if (_elapsedTime >= EnemySprite.FadeDuration &&
                         _emitterGenerator is { Status: ParticleGeneratorStatus.Completed })
                     {
                         _emitterGenerator.AddObjectHandler -= AddObject;
                         _emitterGenerator.RemoveObjectHandler -= RemoveObject;
                         _emitterGenerator = null;
-                        if (Vector2.Distance(Position, playerPosition) < 250f)
-                        {
-                            _playerDetected = true;
-                        }
+                    }
+
+                    if (_emitterGenerator == null && 
+                        Vector2.Distance(Position, playerPosition) < 250f)
+                    {
+                        _playerDetected = true;
                     }
 
                     if (this.IsFrozen)
