@@ -140,6 +140,25 @@ namespace Fun.SimpleGame.States.Gameplay
             _backgroundMusicManager.PlayMusic();
         }
 
+        public override void UnloadContent()
+        {
+            UnsubscribeGameplayEvents();
+
+            if (_player != null)
+            {
+                _player.AddObjectHandler -= AddObject;
+                _player.RemoveObjectHandler -= RemoveObject;
+            }
+
+            if (_enemyManager != null)
+            {
+                _enemyManager.AddObjectHandler -= AddObject;
+                _enemyManager.RemoveObjectHandler -= RemoveObject;
+            }
+
+            base.UnloadContent();
+        }
+
         private void InitializeTerrainBackground()
         {
             var terrainBackground = new TerrainBackgroundSprite(ResourceManager, _eventBus, Camera)
