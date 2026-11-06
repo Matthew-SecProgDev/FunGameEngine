@@ -165,6 +165,8 @@ namespace Fun.SimpleGame.States.Gameplay
                 _eventBus.Unsubscribe<GameplayEvents.GoingToLocation>(_terrainBackground.HandleMoving);
             }
 
+            _backgroundMusicManager.Dispose();
+
             base.UnloadContent();
         }
 

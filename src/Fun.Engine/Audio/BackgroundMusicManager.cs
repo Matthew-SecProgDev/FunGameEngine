@@ -5,50 +5,54 @@ namespace Fun.Engine.Audio
     public class BackgroundMusicManager : IDisposable
     {
         private bool _isDisposed;
-        private int _musicTrackIndex;
+        private int _musicTrackIndex = -1;
         private SoundEffectInstance[] _musicTracks = [];
 
         public void SetBackgroundMusic(IEnumerable<Models.AudioTrack> tracks)
         {
+            ObjectDisposedException.ThrowIf(_isDisposed, this);
+
+            var newTracks = tracks
+                .Select(track => track.CreateInstance())
+                .ToArray();
+
             foreach (var track in _musicTracks)
             {
                 track.Dispose();
             }
 
-            _musicTracks = tracks.Select(i => i.CreateInstance()).ToArray();
+            _musicTracks = newTracks;
             _musicTrackIndex = 0;
         }
 
         public void PlayMusic()
         {
-            var trackCount = _musicTracks.Length;
+            ObjectDisposedException.ThrowIf(_isDisposed, this);
 
-            if (trackCount == 0)
-            {
-                return;
-            }
-
-            var currentTrack = _musicTracks[_musicTrackIndex];
-            if (currentTrack.State == SoundState.Stopped)
-            {
-                var nextTrackIndex = (_musicTrackIndex + 1) % trackCount;
-                _musicTracks[nextTrackIndex].Play();
-                _musicTrackIndex = nextTrackIndex;
-            }
-        }
-
-        public void StopMusic()
-        {
             if (_musicTracks.Length == 0)
             {
                 return;
             }
 
-            var currentTrack = _musicTracks[_musicTrackIndex];
-            if (currentTrack.State == SoundState.Playing)
+            if (_musicTrackIndex >= 0 &&
+                _musicTracks[_musicTrackIndex].State != SoundState.Stopped)
             {
-                currentTrack.Stop();
+                return;
             }
+
+            _musicTrackIndex = (_musicTrackIndex + 1) % _musicTracks.Length;
+
+            _musicTracks[_musicTrackIndex].Play();
+        }
+
+        public void StopMusic()
+        {
+            if (_isDisposed || _musicTrackIndex < 0)
+            {
+                return;
+            }
+
+            _musicTracks[_musicTrackIndex].Stop();
         }
 
         public void Dispose()
