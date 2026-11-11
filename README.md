@@ -45,7 +45,9 @@ FunGameEngine/
 │       └── Content/            # MonoGame content pipeline project
 ├── docs/
 │   └── demo/
-│       └── FunGameEngine-Gameplay-Demo.mp4
+│       ├── FunGameEngine-Gameplay-Demo.mp4
+│       ├── FunGameEngine-Short-Gameplay-Demo.mp4
+│       └── FunGameEngine-Gameplay-Preview.gif
 ├── Fun.sln
 └── README.md
 ```
