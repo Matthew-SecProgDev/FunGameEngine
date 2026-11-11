@@ -6,7 +6,7 @@ The project focuses on practical gameplay programming and the design of reusable
 
 ## Gameplay Demo
 
-[**FunGameEngine Gameplay**](scr/docs/demo/FunGameEngine-Gameplay-Preview.gif)
+[**FunGameEngine Gameplay**](src/docs/demo/FunGameEngine-Gameplay-Preview.gif)
 
 [**Watch the gameplay video**](src/docs/demo/FunGameEngine-Short-Gameplay-Demo.mp4)
 
