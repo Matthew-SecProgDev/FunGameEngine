@@ -6,7 +6,9 @@ The project focuses on practical gameplay programming and the design of reusable
 
 ## Gameplay Demo
 
-[**Watch the FunGameEngine gameplay demo (MP4)**](docs/demo/FunGameEngine-Gameplay-Demo.mp4)
+[**FunGameEngine Gameplay**](scr/docs/demo/FunGameEngine-Gameplay-Preview.gif)
+
+[**Watch the gameplay video**](src/docs/demo/FunGameEngine-Short-Gameplay-Demo.mp4)
 
 The recording shows the sample game's arena gameplay, character movement, enemies, combat effects, and on-screen HUD. The video is a short highlight, not a demonstration of every implemented feature.
 
