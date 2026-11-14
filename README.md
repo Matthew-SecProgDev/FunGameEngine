@@ -41,8 +41,7 @@ FunGameEngine/
 ├── src/
 │   ├── Fun.Engine/             # Reusable MonoGame engine components
 │   └── Fun.SimpleGame/         # Sample game and gameplay-specific code
-│       ├── Assets/             # Game textures, audio, and other assets
-│       └── Content/            # MonoGame content pipeline project
+│       └── Assets/             # Game textures, audio, and other assets
 ├── docs/
 │   └── demo/
 │       ├── FunGameEngine-Gameplay-Demo.mp4
