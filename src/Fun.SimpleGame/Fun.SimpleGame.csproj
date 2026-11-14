@@ -36,15 +36,9 @@
     <Folder Include="States\" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="GameConfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="MainConfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="EnemyConfig.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+	<None Update="GameConfig.json" CopyToOutputDirectory="PreserveNewest" />
+	<None Update="MainConfig.json" CopyToOutputDirectory="PreserveNewest" />
+	<None Update="EnemyConfig.xml" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />

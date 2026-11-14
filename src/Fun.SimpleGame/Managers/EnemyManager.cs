@@ -8,6 +8,7 @@ using Fun.SimpleGame.Configurations.Enemy.Models;
 using Fun.SimpleGame.Entities;
 using Fun.SimpleGame.States.Gameplay;
 using Microsoft.Xna.Framework;
+using System.IO;
 using RNG = Fun.Engine.Utilities.RandomNumberGenerator;
 
 namespace Fun.SimpleGame.Managers
@@ -36,7 +37,8 @@ namespace Fun.SimpleGame.Managers
             _resourceManager = resourceManager;
             _eventBus = eventBus;
 
-            _enemyConfig = Configurations.Enemy.EnemyConfigParser.Parse("EnemyConfig.xml");//temporary
+			var configPath = Path.Combine(AppContext.BaseDirectory, "EnemyConfig.xml");
+            _enemyConfig = Configurations.Enemy.EnemyConfigParser.Parse(configPath);//temporary
         }
 
         public void Initialize(Vector2 playerPosition)

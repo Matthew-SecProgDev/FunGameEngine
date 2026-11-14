@@ -79,37 +79,11 @@ dotnet build Fun.sln -c Debug --no-restore
 
 ### Run the sample game
 
-After building, the intended launch command from the repository root is:
-
 ```powershell
 dotnet run --project src/Fun.SimpleGame/Fun.SimpleGame.csproj -c Debug
 ```
 
-**Current run-time limitation:** The sample requires a `MainConfig.json` configuration file. At present, launching the project from the repository root can fail with `FileNotFoundException` because the application looks for `MainConfig.json` in the current working directory. Before the command above can be considered reliable for a fresh clone, the project needs to include a suitable non-sensitive configuration file and load it from a stable location (for example, by copying it to the build output and resolving it relative to `AppContext.BaseDirectory`). The build and run instructions are therefore **not yet fully verified end to end**.
-
-You can also open `Fun.sln` in Visual Studio and choose **Fun.SimpleGame** as the startup project. Its working directory and configuration-file location must still be correct.
-
-### Troubleshooting
-
-**`MSB4126: The specified solution configuration "Debug|x64" is invalid`**
-
-The Visual Studio **x64 Native Tools Command Prompt** may set `Platform=x64` in the environment, while `Fun.sln` does not define that solution configuration. Use regular PowerShell for the commands above. Alternatively, clear the inherited platform for the current Command Prompt session and retry:
-
-```cmd
-set Platform=
-dotnet restore Fun.sln
-dotnet build Fun.sln -c Debug --no-restore
-```
-
-Do not add `-p:Platform="Any CPU"` to the default instructions unless that solution platform is confirmed and needed; ordinary PowerShell builds do not require it in the tested environment.
-
-**MonoGame content pipeline or local-tool errors**
-
-The sample uses the MonoGame content pipeline and has a local .NET tool manifest under `src/Fun.SimpleGame/.config/`. If a clean checkout reports missing content-building tools, review the project’s MonoGame tooling setup and restore the tools from the appropriate manifest directory before rebuilding.
-
-**`NU1903` warning for `System.Text.Json`**
-
-A local restore reported a high-severity security advisory for `System.Text.Json` version `8.0.4`. This is separate from the `MainConfig.json` run-time failure. The affected dependency should be updated to a compatible patched version, including checking whether it is direct or transitive. Until that is resolved, a successful build may still display package-audit warnings.
+You can also open `Fun.sln` in Visual Studio and choose **Fun.SimpleGame** as the startup project.
 
 ## Current Status and Scope
 

@@ -17,8 +17,8 @@ namespace Fun.SimpleGame
         public static void Main()
         {
             IConfiguration configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("MainConfig.json")
+                .SetBasePath(AppContext.BaseDirectory)
+                .AddJsonFile("MainConfig.json", optional: false)
                 .Build();
 
             var serviceCollection = new ServiceCollection();
